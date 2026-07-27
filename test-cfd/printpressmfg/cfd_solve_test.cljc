@@ -124,7 +124,8 @@
         (is (< opd 1000.0)
             (str "OPD of " opd " nm is not credible for a 1 m/s air flow"))))
     (testing "the caveat travels with the number"
-      (is (re-find #"[Ll]ower bound" (:caveat r))))))
+      (is (re-find #"NOT a bound" (:caveat r)))
+      (is (re-find #"reduced Reynolds" (:caveat r))))))
 
 (deftest report-is-reproducible
   ;; The solver is deterministic (no RNG); the same spec must give the

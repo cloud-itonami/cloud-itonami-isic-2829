@@ -66,14 +66,26 @@
       overstates spanwise-uniform separation and cannot represent
       side-edge vortices. `kami-cfd.d3` (D3Q19) exists and would be the
       upgrade path.
-    - This models the DENSITY/PRESSURE term of the refractive-index
-      perturbation only. The THERMAL term (dn/dT for air is about
-      -9e-7 per K, so a 1 mK non-uniformity produces a refractive-index
-      change of the same order as the pressure term computed here) is
-      NOT modelled -- an isothermal LBM cannot produce it. A real
-      environmental-control budget is dominated by the thermal term.
-      Numbers from this ns are therefore a LOWER BOUND on the optical
-      disturbance, never a total.
+    - The number is an ORDER-OF-MAGNITUDE INDICATOR, not a bound in
+      either direction. Two errors of OPPOSITE sign are baked in, and
+      neither is small enough to ignore:
+
+        (over-estimates) `optical-path-difference-nm` multiplies the
+        PEAK-TO-PEAK refractive-index difference by the FULL path
+        length, as though the whole beam ran through the single worst
+        cell. The real beam integrates a varying dn along its path, so
+        the true density-term OPD is smaller than what is reported.
+
+        (under-estimates) Only the DENSITY/PRESSURE term is modelled.
+        The THERMAL term -- dn/dT for air is about -9e-7 per K, so a
+        1 mK non-uniformity moves the refractive index by roughly the
+        same amount as the whole pressure term computed here -- is
+        absent, because an isothermal LBM cannot produce it. Real
+        environmental-control budgets are dominated by that term.
+
+      Do not describe the output as a lower bound, an upper bound, or a
+      total optical budget. It is a sanity-scale figure for whether this
+      effect belongs in the budget conversation at all.
     - The optical path difference is reported as an OPD, not as a
       stage-position error. Mapping OPD to a position error depends on
       interferometer fold geometry (pass count, beam routing) that this
@@ -318,7 +330,14 @@
     OPD    = dn * L                          (optical path through L)
 
   `path-length-m` is how far the metrology beam runs through the
-  disturbed gas."
+  disturbed gas.
+
+  DELIBERATELY PESSIMISTIC: `cp-peak-to-peak` is the spatial worst case
+  across the probe line, and it is applied uniformly over the whole
+  path. A real beam integrates a varying dn, so this over-states the
+  density term. See the ns docstring -- that over-statement sits
+  alongside the omitted (and usually larger) thermal term, which is why
+  the result is an indicator rather than a bound."
   [unit cp-peak-to-peak path-length-m]
   (let [u (approach-velocity-m-s unit)
         dp (* cp-peak-to-peak 0.5 air-density-kg-m3 u u)
@@ -341,9 +360,11 @@
   stage-interferometer beam run inside the enclosure.
 
   The verdict compares the DENSITY-term OPD against the unit's overlay
-  budget. Per this ns's stated limitations that is a LOWER BOUND on the
-  optical disturbance -- so `:within-budget? true` means 'this term
-  alone does not break the budget', never 'the tool meets overlay'.
+  budget. Per this ns's stated limitations that OPD carries errors of
+  both signs (pessimistic path integration, absent thermal term), so
+  `:within-budget? true` means only 'this indicator does not by itself
+  exhaust the budget'. It is never evidence that the tool meets
+  overlay.
 
   Note that the OPD is built from the DIMENSIONLESS pressure coefficient
   combined with the PHYSICAL approach velocity. That split is what lets
@@ -374,9 +395,10 @@
       ;; Single-line on purpose: this is machine-readable report data, so
       ;; it must not carry source indentation into whatever consumes it.
       :caveat
-      (str "Density/pressure term only; the thermal term (dn/dT ~ -9e-7 /K) "
-           "is not modelled and typically dominates. 2D section. "
-           "Lower bound, not a total optical budget."
+      (str "Indicator, NOT a bound in either direction: the density term is "
+           "over-stated (peak-to-peak dn applied over the full path) while "
+           "the thermal term (dn/dT ~ -9e-7 /K), which usually dominates, is "
+           "absent. 2D section."
            (when (false? matched?)
              (str " Solved at reduced Reynolds (" (long (:re spec))
                   " vs physical " (long (:physical-reynolds spec))

@@ -194,8 +194,13 @@
     (is (= 2.0 (:overlay-budget-nm r)))
     (is (some? (:within-budget? r)))
     (is (string? (:caveat r)))
-    (testing "the caveat must keep saying this is a lower bound"
-      (is (re-find #"[Ll]ower bound" (:caveat r))))))
+    (testing "the caveat must keep refusing to call this a bound"
+      (is (re-find #"NOT a bound" (:caveat r)))
+      (is (re-find #"thermal term" (:caveat r)))
+      (is (nil? (re-find #"[Ll]ower bound" (:caveat r)))
+          "the old 'lower bound' wording was wrong -- the density term is
+           over-stated while the thermal term is absent, so the errors run
+           in both directions"))))
 
 (deftest a-reduced-reynolds-run-says-so-in-its-own-report
   ;; The report must never let a caller mistake a clamped solve for a
@@ -214,7 +219,7 @@
                                   :spec (cfd/lattice-spec slow {:body-h 48})))]
     (is (true? (:reynolds-matched? r)))
     (is (nil? (re-find #"reduced Reynolds" (:caveat r))))
-    (is (re-find #"[Ll]ower bound" (:caveat r))
+    (is (re-find #"NOT a bound" (:caveat r))
         "the other caveats must still travel with it")))
 
 (deftest budget-verdict-tracks-the-budget
