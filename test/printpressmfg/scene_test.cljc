@@ -91,9 +91,15 @@
         [_ frame-h _] (:frame dims)
         [_ plenum-h _] (:plenum dims)
         stage-top (+ frame-h stage-h)
-        plenum (nth (:instances ir) 7)              ; purge plenum
+        ;; Identify the plenum by its own colour rather than by position
+        ;; in the vector: a magic index would silently start asserting
+        ;; about a DIFFERENT instance if the scene were ever reordered,
+        ;; which is exactly the drift this test exists to catch.
+        plenum (first (filter #(= scene/plenum-color (:color %))
+                              (:instances ir)))
         plenum-bottom (- (nth (:pos plenum) 1) (/ plenum-h 2.0))
         gap (- plenum-bottom stage-top)]
+    (is (some? plenum) "the purge plenum instance must exist")
     (is (< (Math/abs (- gap (/ (:purge-duct-height-mm scanner) 1000.0))) 1e-9)
         "plenum face must stand :purge-duct-height-mm above the stage top")))
 
