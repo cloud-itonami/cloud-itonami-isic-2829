@@ -1,0 +1,37 @@
+;; Giemon Otete — SOFTWARE-stack SBOM (台帳), Datomic-style EDN.
+;;
+;; The robot's software dependencies (RPi 5 / Ubuntu 22.04 / ROS2 Humble /
+;; Python 3.11), transcribed from firmware/pyproject.toml + ros2/{package.xml,
+;; setup.py}. Unlike the HARDWARE BOM (pkg:generic/*), these have real
+;; ecosystem purls (pkg:pypi/*, pkg:deb/ros-humble-*) that OSV indexes — so this
+;; is the OSV-matchable surface of the fleet (osv_fetch.py → osv_to_kotoba.py →
+;; purl_vuln_match.py). :bom/of giemon-otete-sw keeps it distinct from the
+;; hardware ledger in the kotoba graph.
+
+{:bom/meta
+ {:bom/of       "giemon-otete-sw"
+  :bom/revision "v1"
+  :bom/title    "Giemon Otete — software stack SBOM (RPi5 / Ubuntu 22.04 / ROS2 Humble / Python 3.11)"
+  :bom/sourcing :spec
+  :bom/note     "From firmware/pyproject.toml + ros2/package.xml. PyPI deps are OSV-matchable; ROS2 debs have limited OSV coverage."}
+
+ :bom/parts
+ [;; ── Python (PyPI) — OSV-matchable ────────────────────────────────────────
+  {:part/id "sw:pyserial"   :part/name "pyserial"   :part/group "software-pydep" :part/procurement :cots :part/manufacturer "pySerial" :part/product ">=3.5"  :part/purl "pkg:pypi/pyserial"   :part/sourcing :spec}
+  {:part/id "sw:numpy"      :part/name "numpy"      :part/group "software-pydep" :part/procurement :cots :part/manufacturer "NumPy"    :part/product ">=1.26" :part/purl "pkg:pypi/numpy"      :part/sourcing :spec}
+  {:part/id "sw:scipy"      :part/name "scipy"      :part/group "software-pydep" :part/procurement :cots :part/manufacturer "SciPy"    :part/product ">=1.12" :part/purl "pkg:pypi/scipy"      :part/sourcing :spec}
+  {:part/id "sw:smbus2"     :part/name "smbus2"     :part/group "software-pydep" :part/procurement :cots :part/manufacturer "kplindegaard" :part/product ">=0.4" :part/purl "pkg:pypi/smbus2"  :part/sourcing :spec}
+  {:part/id "sw:picamera2"  :part/name "picamera2"  :part/group "software-pydep" :part/procurement :cots :part/manufacturer "Raspberry Pi Ltd" :part/product ">=0.3" :part/purl "pkg:pypi/picamera2" :part/sourcing :spec}
+  {:part/id "sw:rpi-gpio"   :part/name "RPi.GPIO"   :part/group "software-pydep" :part/procurement :cots :part/manufacturer "Ben Croston" :part/product ">=0.7" :part/purl "pkg:pypi/rpi.gpio" :part/sourcing :spec}
+  {:part/id "sw:setuptools" :part/name "setuptools" :part/group "software-pydep" :part/procurement :cots :part/manufacturer "PyPA"     :part/product "(ros2 build)" :part/purl "pkg:pypi/setuptools" :part/sourcing :spec}
+  {:part/id "sw:hatchling"  :part/name "hatchling"  :part/group "software-pydep" :part/procurement :cots :part/manufacturer "PyPA"     :part/product "(build)" :part/purl "pkg:pypi/hatchling" :part/sourcing :spec}
+  {:part/id "sw:pytest"     :part/name "pytest"     :part/group "software-pydep" :part/procurement :cots :part/manufacturer "pytest-dev" :part/product ">=8.0" :part/purl "pkg:pypi/pytest"   :part/sourcing :spec}
+  {:part/id "sw:pytest-mock" :part/name "pytest-mock" :part/group "software-pydep" :part/procurement :cots :part/manufacturer "pytest-dev" :part/product ">=3.12" :part/purl "pkg:pypi/pytest-mock" :part/sourcing :spec}
+
+  ;; ── ROS2 Humble (Debian) — documented; limited OSV coverage ──────────────
+  {:part/id "sw:rclpy"          :part/name "rclpy"          :part/group "software-rosdep" :part/procurement :cots :part/manufacturer "Open Robotics" :part/product "humble" :part/purl "pkg:deb/ros-humble-rclpy" :part/sourcing :spec}
+  {:part/id "sw:sensor-msgs"    :part/name "sensor_msgs"    :part/group "software-rosdep" :part/procurement :cots :part/manufacturer "Open Robotics" :part/product "humble" :part/purl "pkg:deb/ros-humble-sensor-msgs" :part/sourcing :spec}
+  {:part/id "sw:geometry-msgs"  :part/name "geometry_msgs"  :part/group "software-rosdep" :part/procurement :cots :part/manufacturer "Open Robotics" :part/product "humble" :part/purl "pkg:deb/ros-humble-geometry-msgs" :part/sourcing :spec}
+  {:part/id "sw:trajectory-msgs" :part/name "trajectory_msgs" :part/group "software-rosdep" :part/procurement :cots :part/manufacturer "Open Robotics" :part/product "humble" :part/purl "pkg:deb/ros-humble-trajectory-msgs" :part/sourcing :spec}
+  {:part/id "sw:tf2-ros"        :part/name "tf2_ros"        :part/group "software-rosdep" :part/procurement :cots :part/manufacturer "Open Robotics" :part/product "humble" :part/purl "pkg:deb/ros-humble-tf2-ros" :part/sourcing :spec}
+  {:part/id "sw:nav-msgs"       :part/name "nav_msgs"       :part/group "software-rosdep" :part/procurement :cots :part/manufacturer "Open Robotics" :part/product "humble" :part/purl "pkg:deb/ros-humble-nav-msgs" :part/sourcing :spec}]}

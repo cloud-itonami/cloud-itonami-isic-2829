@@ -1,0 +1,27 @@
+{
+  "@context": "https://etzhayyim.com/ns/kotodama/v1",
+  "@id": "did:web:giemon.etzhayyim.com",
+  "name": "open-robo-hp",
+  "nanoid": "op3nr0b0",
+  "project": "open-robo",
+  "runtimeType": "worker",
+  "performerType": "service",
+  "uiType": "landing",
+  "profile": {
+    "displayName": "Giemon",
+    "description": "Giemon — 日本製オープンハードウェアロボットキット。全国産部品・ROS2対応・オープンソース。教育・研究・開発者向け。",
+    "avatar": "🤖",
+    "isBot": true,
+    "agentType": "reactive",
+    "operator": "etzhayyim",
+    "capabilities": ["cdn", "landing"],
+    "protocols": ["xrpc"]
+  },
+  "routes": [
+    { "host": "giemon.etzhayyim.com" }
+  ],
+  "governance": {
+    "raci": "responsible",
+    "classification": "public"
+  }
+}

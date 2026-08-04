@@ -1,0 +1,1 @@
+{:schema "etzhayyim.migration/repository-v1" :source-revision "dc6f6d0a79dc2454918f576473de273103516120" :source-path "60-apps/etzhayyim-project-open-robo" :canonical-files ["README.edn" "migration.edn"]}

@@ -1,0 +1,2181 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "device",
+      "name": "Giemon Otete — 6-axis arm + crawler kit (procurement spec)",
+      "version": "v1.0"
+    },
+    "properties": [
+      {
+        "name": "giemon:bomOf",
+        "value": "giemon-otete"
+      },
+      {
+        "name": "giemon:sourcing",
+        "value": "spec"
+      },
+      {
+        "name": "giemon:note",
+        "value": "Transcribed from BOM-v1.md (2026-05-14). Domestic-Japan sourcing policy; Raspberry Pi 5 is the only SBC exception."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "device",
+      "bom-ref": "otete:S1",
+      "name": "Bus servo L (J1 yaw / J2 shoulder)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "servo"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Kondo Kagaku"
+        },
+        {
+          "name": "giemon:product",
+          "value": "KRS-6013IHV"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "KRS-6013IHV"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "8200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Kondo direct"
+        },
+        {
+          "name": "giemon:simFeature",
+          "value": "j1"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Kondo Kagaku",
+      "supplier": {
+        "name": "Kondo Kagaku"
+      },
+      "version": "KRS-6013IHV"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:S2",
+      "name": "Bus servo M (J3 elbow / J4 wrist pitch)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "servo"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Kondo Kagaku"
+        },
+        {
+          "name": "giemon:product",
+          "value": "KRS-4014ICS"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "KRS-4014ICS"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "5800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Kondo direct"
+        },
+        {
+          "name": "giemon:simFeature",
+          "value": "j3"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Kondo Kagaku",
+      "supplier": {
+        "name": "Kondo Kagaku"
+      },
+      "version": "KRS-4014ICS"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:S3",
+      "name": "Bus servo S (J5 wrist roll / J6 yaw)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "servo"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Kondo Kagaku"
+        },
+        {
+          "name": "giemon:product",
+          "value": "KRS-2350IHV"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "KRS-2350IHV"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "4100"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Kondo direct"
+        },
+        {
+          "name": "giemon:simFeature",
+          "value": "j5"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Kondo Kagaku",
+      "supplier": {
+        "name": "Kondo Kagaku"
+      },
+      "version": "KRS-2350IHV"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:S4",
+      "name": "Gripper servo",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "servo"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Futaba"
+        },
+        {
+          "name": "giemon:product",
+          "value": "S3003"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "S3003"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "980"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "RS Components"
+        },
+        {
+          "name": "giemon:simFeature",
+          "value": "j_grip"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Futaba",
+      "supplier": {
+        "name": "Futaba"
+      },
+      "version": "S3003"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:C1",
+      "name": "DC motor (L/R track)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-drive"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Mabuchi Motor"
+        },
+        {
+          "name": "giemon:product",
+          "value": "RS-550PC-7525"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "RS-550PC-7525"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Mabuchi/RS"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Mabuchi Motor",
+      "supplier": {
+        "name": "Mabuchi Motor"
+      },
+      "version": "RS-550PC-7525"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:C2",
+      "name": "Geared motor w/ encoder",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-drive"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Nidec"
+        },
+        {
+          "name": "giemon:product",
+          "value": "DC12V 100rpm encoder"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "2800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Nidec dealer"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Nidec",
+      "supplier": {
+        "name": "Nidec"
+      },
+      "version": "DC12V 100rpm encoder"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:C3",
+      "name": "Track unit (L/R)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-drive"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Tamiya"
+        },
+        {
+          "name": "giemon:product",
+          "value": "70168 Track & Wheel Set"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "70168"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Tamiya/Amazon"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Tamiya",
+      "supplier": {
+        "name": "Tamiya"
+      },
+      "version": "70168 Track & Wheel Set"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:C4",
+      "name": "Sprocket (drive/idler)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-drive"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "4"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy (Misumi)"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "custom Al CNC, module 1.5"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:C5",
+      "name": "Motor driver IC (H-bridge)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-drive"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Toshiba"
+        },
+        {
+          "name": "giemon:product",
+          "value": "TB6612FNG"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "TB6612FNG"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "120"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Akizuki/DigiKey"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Toshiba",
+      "supplier": {
+        "name": "Toshiba"
+      },
+      "version": "TB6612FNG"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F1",
+      "name": "Al extrusion 15x15mm",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "HFSB3-15-300"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "HFSB3-15-300"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "6"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "380"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Misumi",
+      "supplier": {
+        "name": "Misumi"
+      },
+      "version": "HFSB3-15-300"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F2",
+      "name": "Al L-bracket",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "HBLSS3"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "HBLSS3"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "12"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "95"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Misumi",
+      "supplier": {
+        "name": "Misumi"
+      },
+      "version": "HBLSS3"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F3",
+      "name": "Joint bracket (J1 base)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "2800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:simFeature",
+          "value": "link1"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 CNC t=6mm"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F4",
+      "name": "Joint bracket (J2-J3 link)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 CNC"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F5",
+      "name": "Wrist flange plate",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 t=4mm"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F6",
+      "name": "Gripper finger (L/R)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "900"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 profiled"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F7",
+      "name": "Bearing 608ZZ/693ZZ",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "NTN / JTEKT"
+        },
+        {
+          "name": "giemon:product",
+          "value": "608ZZ / 693ZZ"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "10"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "180"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi/Monotaro"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "NTN / JTEKT",
+      "supplier": {
+        "name": "NTN / JTEKT"
+      },
+      "version": "608ZZ / 693ZZ"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F8",
+      "name": "Shaft SUS304 Φ8x150",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "SRHS8-150"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "SRHS8-150"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "4"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "420"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Misumi",
+      "supplier": {
+        "name": "Misumi"
+      },
+      "version": "SRHS8-150"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:F9",
+      "name": "M3 bolt/nut set SUS304",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "arm-frame"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Daidohant / Misumi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "SUS304 M3"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi/Monotaro"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Daidohant / Misumi",
+      "supplier": {
+        "name": "Daidohant / Misumi"
+      },
+      "version": "SUS304 M3"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:B1",
+      "name": "Bottom plate",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-chassis"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "3800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 t=3mm 280x320mm"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:B2",
+      "name": "Side plate (L/R)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-chassis"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "2200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 t=3mm"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:B3",
+      "name": "Top mount plate (arm base)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-chassis"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "2500"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 t=4mm"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:B4",
+      "name": "Wheel shaft SUS304 Φ8x80",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-chassis"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "SRHS8-80"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "SRHS8-80"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "4"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "280"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Misumi",
+      "supplier": {
+        "name": "Misumi"
+      },
+      "version": "SRHS8-80"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:B5",
+      "name": "Spacer / collar set",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "crawler-chassis"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "600"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "Al, assorted lengths"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E1",
+      "name": "SBC (exception)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Raspberry Pi Ltd"
+        },
+        {
+          "name": "giemon:product",
+          "value": "Raspberry Pi 5 4GB"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "RPi5-4GB"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "9800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "KSY/SwitchScience"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Raspberry Pi Ltd",
+      "supplier": {
+        "name": "Raspberry Pi Ltd"
+      },
+      "version": "Raspberry Pi 5 4GB"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E2",
+      "name": "Custom control HAT",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:product",
+          "value": "Otete HAT-v1"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "3200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "P-Ban.com"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "P-Ban PCB: ICS3.5 + RS485x2 + TB6612x2 + current/IMU"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "version": "Otete HAT-v1"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E3",
+      "name": "RS485 transceiver",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Rohm"
+        },
+        {
+          "name": "giemon:product",
+          "value": "BD33xxx / BU34ICSB"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "180"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "DigiKey/RS"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Rohm",
+      "supplier": {
+        "name": "Rohm"
+      },
+      "version": "BD33xxx / BU34ICSB"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E4",
+      "name": "IMU (6-axis MEMS)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Murata"
+        },
+        {
+          "name": "giemon:product",
+          "value": "SCHA634-D02"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "SCHA634-D02"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Murata dealer"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Murata",
+      "supplier": {
+        "name": "Murata"
+      },
+      "version": "SCHA634-D02"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E5",
+      "name": "Camera module",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Sony Semiconductor"
+        },
+        {
+          "name": "giemon:product",
+          "value": "RPi Camera v3 (IMX477)"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "IMX477"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "4200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "KSY"
+        },
+        {
+          "name": "giemon:simFeature",
+          "value": "link6"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Sony Semiconductor",
+      "supplier": {
+        "name": "Sony Semiconductor"
+      },
+      "version": "RPi Camera v3 (IMX477)"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E6",
+      "name": "ToF sensor",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "STMicroelectronics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "VL53L4CX"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "VL53L4CX"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "980"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "DigiKey"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        },
+        {
+          "name": "giemon:note",
+          "value": "Spec lists 村田; VL53L4CX is an STMicroelectronics part."
+        }
+      ],
+      "publisher": "STMicroelectronics",
+      "supplier": {
+        "name": "STMicroelectronics"
+      },
+      "version": "VL53L4CX"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E7",
+      "name": "microSD 32GB A1",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Panasonic"
+        },
+        {
+          "name": "giemon:product",
+          "value": "RP-SMEX32DA1K"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "RP-SMEX32DA1K"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Amazon JP"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Panasonic",
+      "supplier": {
+        "name": "Panasonic"
+      },
+      "version": "RP-SMEX32DA1K"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E8",
+      "name": "USB-C power switch (tactile)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Alps Alpine"
+        },
+        {
+          "name": "giemon:product",
+          "value": "SKTAAE010"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "SKTAAE010"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "80"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "RS Components"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Alps Alpine",
+      "supplier": {
+        "name": "Alps Alpine"
+      },
+      "version": "SKTAAE010"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E9",
+      "name": "Status LED (RGB)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Rohm"
+        },
+        {
+          "name": "giemon:product",
+          "value": "SLI343TCT"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "SLI343TCT"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "4"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "60"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "DigiKey"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Rohm",
+      "supplier": {
+        "name": "Rohm"
+      },
+      "version": "SLI343TCT"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:E10",
+      "name": "Current sense IC",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "control-electronics"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Rohm"
+        },
+        {
+          "name": "giemon:product",
+          "value": "BD49000"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "BD49000"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "280"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "DigiKey"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Rohm",
+      "supplier": {
+        "name": "Rohm"
+      },
+      "version": "BD49000"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P1",
+      "name": "18650 Li-ion cell",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Panasonic Energy"
+        },
+        {
+          "name": "giemon:product",
+          "value": "NCR18650B"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "NCR18650B"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "4"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "820"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Panasonic dealer"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Panasonic Energy",
+      "supplier": {
+        "name": "Panasonic Energy"
+      },
+      "version": "NCR18650B"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P2",
+      "name": "4S 18650 holder",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Takachi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "BH-18650-4S"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "BH-18650-4S"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "480"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Takachi/Monotaro"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Takachi",
+      "supplier": {
+        "name": "Takachi"
+      },
+      "version": "BH-18650-4S"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P3",
+      "name": "BMS (4S protection)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Akizuki"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "custom 4S 15A protect + balance"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P4",
+      "name": "DC-DC 5V/5A",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "TDK-Lambda"
+        },
+        {
+          "name": "giemon:product",
+          "value": "PH50S12-5"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "PH50S12-5"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "3200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "TDK-Lambda dealer"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "TDK-Lambda",
+      "supplier": {
+        "name": "TDK-Lambda"
+      },
+      "version": "PH50S12-5"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P5",
+      "name": "DC-DC 7.4V/3A (servo)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Cosel"
+        },
+        {
+          "name": "giemon:product",
+          "value": "PFJA030"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "PFJA030"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "4800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Cosel/RS"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Cosel",
+      "supplier": {
+        "name": "Cosel"
+      },
+      "version": "PFJA030"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P6",
+      "name": "USB-C charge port",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Hirose"
+        },
+        {
+          "name": "giemon:product",
+          "value": "ZX62-B-5PA"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "ZX62-B-5PA"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "180"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "RS Components"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Hirose",
+      "supplier": {
+        "name": "Hirose"
+      },
+      "version": "ZX62-B-5PA"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:P7",
+      "name": "Power connector XT30",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "power"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Amphenol"
+        },
+        {
+          "name": "giemon:product",
+          "value": "XT30U-M/F"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "XT30U"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "2"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "120"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Akizuki"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Amphenol",
+      "supplier": {
+        "name": "Amphenol"
+      },
+      "version": "XT30U-M/F"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X1",
+      "name": "TPU cover (crawler)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "2800"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "DMM.make"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "TPU 95A, domestic 3D print"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X2",
+      "name": "Acrylic cover (electronics)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1200"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Takachi"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "clear acrylic, laser cut"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X3",
+      "name": "Flexible flat cable",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Sumitomo Electric"
+        },
+        {
+          "name": "giemon:product",
+          "value": "FFC 0.5mm pitch 26-core"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "600"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "RS Components"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Sumitomo Electric",
+      "supplier": {
+        "name": "Sumitomo Electric"
+      },
+      "version": "FFC 0.5mm pitch 26-core"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X4",
+      "name": "Servo bus cable (ICS3.5)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Kondo Kagaku"
+        },
+        {
+          "name": "giemon:product",
+          "value": "ICS3.5 cable"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "8"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "180"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Kondo"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Kondo Kagaku",
+      "supplier": {
+        "name": "Kondo Kagaku"
+      },
+      "version": "ICS3.5 cable"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X5",
+      "name": "Wiring tube + clamp",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:product",
+          "value": "CBT-4/6"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "CBT-4"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "400"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Misumi"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Misumi",
+      "supplier": {
+        "name": "Misumi"
+      },
+      "version": "CBT-4/6"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X6",
+      "name": "Camera pan/tilt mount",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "1600"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Meviy"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "AL6061 2-axis pan/tilt"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X7",
+      "name": "Anti-vibration grommet",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Nitta / Sumitomo Riko"
+        },
+        {
+          "name": "giemon:product",
+          "value": "GR-3M"
+        },
+        {
+          "name": "giemon:mpn",
+          "value": "GR-3M"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "20"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "40"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "Monotaro"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Nitta / Sumitomo Riko",
+      "supplier": {
+        "name": "Nitta / Sumitomo Riko"
+      },
+      "version": "GR-3M"
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X8",
+      "name": "Manual / assembly guide (print)",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "600"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "domestic printer"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "A4 colour 32p JP+EN print"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "otete:X9",
+      "name": "Package box",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "exterior"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "custom-fab"
+        },
+        {
+          "name": "giemon:qty",
+          "value": "1"
+        },
+        {
+          "name": "giemon:unitJpy",
+          "value": "900"
+        },
+        {
+          "name": "giemon:supplier",
+          "value": "DNP"
+        },
+        {
+          "name": "giemon:fabProcess",
+          "value": "2-ply board, full-colour"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ]
+    }
+  ]
+}

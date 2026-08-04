@@ -1,0 +1,44 @@
+#usda 1.0
+(
+    defaultPrim = "UrbanMiningCell"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "UrbanMiningCell"
+{
+    def Cube "floor"
+    {
+        double3 xformOp:scale = (3.0, 1.5, 0.025)
+        double3 xformOp:translate = (3.0, 1.5, -0.025)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Xform "inspection_tunnel"
+    {
+        double3 xformOp:translate = (1.1, 1.5, 0.75)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+        custom string role = "rgbd_xrf_scale_station"
+    }
+
+    def Xform "arm_base"
+    {
+        double3 xformOp:translate = (2.6, 1.5, 0.0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+        custom string ros_frame = "arm_base"
+    }
+
+    def Xform "sort_wall"
+    {
+        double3 xformOp:translate = (4.8, 0.35, 0.0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Xform "bin_manual_review" { double3 xformOp:translate = (0, 0, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "manual_review" }
+        def Xform "bin_li_ion_isolation" { double3 xformOp:translate = (0, 0.42, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "li_ion_isolation" }
+        def Xform "bin_mixed_pcb" { double3 xformOp:translate = (0, 0.84, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "mixed_pcb" }
+        def Xform "bin_copper_aluminum" { double3 xformOp:translate = (0, 1.26, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "copper_aluminum" }
+        def Xform "bin_ferrous" { double3 xformOp:translate = (0, 1.68, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "ferrous" }
+        def Xform "bin_rare_earth_magnet" { double3 xformOp:translate = (0, 2.10, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "rare_earth_magnet" }
+        def Xform "bin_reject" { double3 xformOp:translate = (0, 2.52, 0.45) uniform token[] xformOpOrder = ["xformOp:translate"] custom string fraction = "reject" }
+    }
+}

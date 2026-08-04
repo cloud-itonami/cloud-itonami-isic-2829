@@ -1,0 +1,83 @@
+;; Giemon Otete — part ledger (台帳), Datomic-style EDN.
+;;
+;; Structured migration of BOM-v1.md (2026-05-14 procurement spec) into the same
+;; ledger schema as giemon_kabitori, so both robots load into one kotoba EAVT
+;; cross-robot part graph. `sbom_gen.py` (in 70-tools/.../giemon_kabitori/) emits
+;; CycloneDX + a kotoba kg.ingest_batch body from this file.
+;;
+;; :part/procurement :cots = catalog off-the-shelf · :custom-fab = commissioned
+;;   (Meviy CNC / DMM 3D-print / P-Ban PCB / custom Al). :part/sourcing :spec
+;;   = transcribed from the v1.0 procurement spec (manufacturer/MPN/price as
+;;   stated there). :part/unit-jpy = ex-tax unit price (JPY).
+
+{:bom/meta
+ {:bom/of        "giemon-otete"
+  :bom/revision  "v1.0"
+  :bom/title     "Giemon Otete — 6-axis arm + crawler kit (procurement spec)"
+  :bom/currency  "JPY"
+  :bom/sourcing  :spec
+  :bom/note      "Transcribed from BOM-v1.md (2026-05-14). Domestic-Japan sourcing policy; Raspberry Pi 5 is the only SBC exception."}
+
+ :bom/parts
+ [;; ── servo / arm drive ─────────────────────────────────────────────────────
+  {:part/id "otete:S1" :part/name "Bus servo L (J1 yaw / J2 shoulder)" :part/group "servo" :part/procurement :cots :part/manufacturer "Kondo Kagaku" :part/product "KRS-6013IHV" :part/mpn "KRS-6013IHV" :part/qty 2 :part/unit-jpy 8200 :part/supplier "Kondo direct" :part/sim-feature "j1" :part/sourcing :spec}
+  {:part/id "otete:S2" :part/name "Bus servo M (J3 elbow / J4 wrist pitch)" :part/group "servo" :part/procurement :cots :part/manufacturer "Kondo Kagaku" :part/product "KRS-4014ICS" :part/mpn "KRS-4014ICS" :part/qty 2 :part/unit-jpy 5800 :part/supplier "Kondo direct" :part/sim-feature "j3" :part/sourcing :spec}
+  {:part/id "otete:S3" :part/name "Bus servo S (J5 wrist roll / J6 yaw)" :part/group "servo" :part/procurement :cots :part/manufacturer "Kondo Kagaku" :part/product "KRS-2350IHV" :part/mpn "KRS-2350IHV" :part/qty 2 :part/unit-jpy 4100 :part/supplier "Kondo direct" :part/sim-feature "j5" :part/sourcing :spec}
+  {:part/id "otete:S4" :part/name "Gripper servo" :part/group "servo" :part/procurement :cots :part/manufacturer "Futaba" :part/product "S3003" :part/mpn "S3003" :part/qty 1 :part/unit-jpy 980 :part/supplier "RS Components" :part/sim-feature "j_grip" :part/sourcing :spec}
+
+  ;; ── crawler drive ─────────────────────────────────────────────────────────
+  {:part/id "otete:C1" :part/name "DC motor (L/R track)" :part/group "crawler-drive" :part/procurement :cots :part/manufacturer "Mabuchi Motor" :part/product "RS-550PC-7525" :part/mpn "RS-550PC-7525" :part/qty 2 :part/unit-jpy 1200 :part/supplier "Mabuchi/RS" :part/sourcing :spec}
+  {:part/id "otete:C2" :part/name "Geared motor w/ encoder" :part/group "crawler-drive" :part/procurement :cots :part/manufacturer "Nidec" :part/product "DC12V 100rpm encoder" :part/qty 2 :part/unit-jpy 2800 :part/supplier "Nidec dealer" :part/sourcing :spec}
+  {:part/id "otete:C3" :part/name "Track unit (L/R)" :part/group "crawler-drive" :part/procurement :cots :part/manufacturer "Tamiya" :part/product "70168 Track & Wheel Set" :part/mpn "70168" :part/qty 2 :part/unit-jpy 1200 :part/supplier "Tamiya/Amazon" :part/sourcing :spec}
+  {:part/id "otete:C4" :part/name "Sprocket (drive/idler)" :part/group "crawler-drive" :part/procurement :custom-fab :part/fab-process "custom Al CNC, module 1.5" :part/qty 4 :part/unit-jpy 800 :part/supplier "Meviy (Misumi)" :part/sourcing :spec}
+  {:part/id "otete:C5" :part/name "Motor driver IC (H-bridge)" :part/group "crawler-drive" :part/procurement :cots :part/manufacturer "Toshiba" :part/product "TB6612FNG" :part/mpn "TB6612FNG" :part/qty 2 :part/unit-jpy 120 :part/supplier "Akizuki/DigiKey" :part/sourcing :spec}
+
+  ;; ── arm frame ─────────────────────────────────────────────────────────────
+  {:part/id "otete:F1" :part/name "Al extrusion 15x15mm" :part/group "arm-frame" :part/procurement :cots :part/manufacturer "Misumi" :part/product "HFSB3-15-300" :part/mpn "HFSB3-15-300" :part/qty 6 :part/unit-jpy 380 :part/supplier "Misumi" :part/sourcing :spec}
+  {:part/id "otete:F2" :part/name "Al L-bracket" :part/group "arm-frame" :part/procurement :cots :part/manufacturer "Misumi" :part/product "HBLSS3" :part/mpn "HBLSS3" :part/qty 12 :part/unit-jpy 95 :part/supplier "Misumi" :part/sourcing :spec}
+  {:part/id "otete:F3" :part/name "Joint bracket (J1 base)" :part/group "arm-frame" :part/procurement :custom-fab :part/fab-process "AL6061 CNC t=6mm" :part/qty 1 :part/unit-jpy 2800 :part/supplier "Meviy" :part/sim-feature "link1" :part/sourcing :spec}
+  {:part/id "otete:F4" :part/name "Joint bracket (J2-J3 link)" :part/group "arm-frame" :part/procurement :custom-fab :part/fab-process "AL6061 CNC" :part/qty 2 :part/unit-jpy 1800 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:F5" :part/name "Wrist flange plate" :part/group "arm-frame" :part/procurement :custom-fab :part/fab-process "AL6061 t=4mm" :part/qty 1 :part/unit-jpy 1200 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:F6" :part/name "Gripper finger (L/R)" :part/group "arm-frame" :part/procurement :custom-fab :part/fab-process "AL6061 profiled" :part/qty 2 :part/unit-jpy 900 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:F7" :part/name "Bearing 608ZZ/693ZZ" :part/group "arm-frame" :part/procurement :cots :part/manufacturer "NTN / JTEKT" :part/product "608ZZ / 693ZZ" :part/qty 10 :part/unit-jpy 180 :part/supplier "Misumi/Monotaro" :part/sourcing :spec}
+  {:part/id "otete:F8" :part/name "Shaft SUS304 Φ8x150" :part/group "arm-frame" :part/procurement :cots :part/manufacturer "Misumi" :part/product "SRHS8-150" :part/mpn "SRHS8-150" :part/qty 4 :part/unit-jpy 420 :part/supplier "Misumi" :part/sourcing :spec}
+  {:part/id "otete:F9" :part/name "M3 bolt/nut set SUS304" :part/group "arm-frame" :part/procurement :cots :part/manufacturer "Daidohant / Misumi" :part/product "SUS304 M3" :part/qty 1 :part/unit-jpy 800 :part/supplier "Misumi/Monotaro" :part/sourcing :spec}
+
+  ;; ── crawler chassis ───────────────────────────────────────────────────────
+  {:part/id "otete:B1" :part/name "Bottom plate" :part/group "crawler-chassis" :part/procurement :custom-fab :part/fab-process "AL6061 t=3mm 280x320mm" :part/qty 1 :part/unit-jpy 3800 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:B2" :part/name "Side plate (L/R)" :part/group "crawler-chassis" :part/procurement :custom-fab :part/fab-process "AL6061 t=3mm" :part/qty 2 :part/unit-jpy 2200 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:B3" :part/name "Top mount plate (arm base)" :part/group "crawler-chassis" :part/procurement :custom-fab :part/fab-process "AL6061 t=4mm" :part/qty 1 :part/unit-jpy 2500 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:B4" :part/name "Wheel shaft SUS304 Φ8x80" :part/group "crawler-chassis" :part/procurement :cots :part/manufacturer "Misumi" :part/product "SRHS8-80" :part/mpn "SRHS8-80" :part/qty 4 :part/unit-jpy 280 :part/supplier "Misumi" :part/sourcing :spec}
+  {:part/id "otete:B5" :part/name "Spacer / collar set" :part/group "crawler-chassis" :part/procurement :custom-fab :part/fab-process "Al, assorted lengths" :part/qty 1 :part/unit-jpy 600 :part/supplier "Misumi" :part/sourcing :spec}
+
+  ;; ── control / electronics ─────────────────────────────────────────────────
+  {:part/id "otete:E1" :part/name "SBC (exception)" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Raspberry Pi Ltd" :part/product "Raspberry Pi 5 4GB" :part/mpn "RPi5-4GB" :part/qty 1 :part/unit-jpy 9800 :part/supplier "KSY/SwitchScience" :part/sourcing :spec}
+  {:part/id "otete:E2" :part/name "Custom control HAT" :part/group "control-electronics" :part/procurement :custom-fab :part/fab-process "P-Ban PCB: ICS3.5 + RS485x2 + TB6612x2 + current/IMU" :part/product "Otete HAT-v1" :part/qty 1 :part/unit-jpy 3200 :part/supplier "P-Ban.com" :part/sourcing :spec}
+  {:part/id "otete:E3" :part/name "RS485 transceiver" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Rohm" :part/product "BD33xxx / BU34ICSB" :part/qty 2 :part/unit-jpy 180 :part/supplier "DigiKey/RS" :part/sourcing :spec}
+  {:part/id "otete:E4" :part/name "IMU (6-axis MEMS)" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Murata" :part/product "SCHA634-D02" :part/mpn "SCHA634-D02" :part/qty 1 :part/unit-jpy 1800 :part/supplier "Murata dealer" :part/sourcing :spec}
+  {:part/id "otete:E5" :part/name "Camera module" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Sony Semiconductor" :part/product "RPi Camera v3 (IMX477)" :part/mpn "IMX477" :part/qty 1 :part/unit-jpy 4200 :part/supplier "KSY" :part/sim-feature "link6" :part/sourcing :spec}
+  {:part/id "otete:E6" :part/name "ToF sensor" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "STMicroelectronics" :part/product "VL53L4CX" :part/mpn "VL53L4CX" :part/qty 2 :part/unit-jpy 980 :part/supplier "DigiKey" :part/sourcing :spec :part/note "Spec lists 村田; VL53L4CX is an STMicroelectronics part."}
+  {:part/id "otete:E7" :part/name "microSD 32GB A1" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Panasonic" :part/product "RP-SMEX32DA1K" :part/mpn "RP-SMEX32DA1K" :part/qty 1 :part/unit-jpy 800 :part/supplier "Amazon JP" :part/sourcing :spec}
+  {:part/id "otete:E8" :part/name "USB-C power switch (tactile)" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Alps Alpine" :part/product "SKTAAE010" :part/mpn "SKTAAE010" :part/qty 2 :part/unit-jpy 80 :part/supplier "RS Components" :part/sourcing :spec}
+  {:part/id "otete:E9" :part/name "Status LED (RGB)" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Rohm" :part/product "SLI343TCT" :part/mpn "SLI343TCT" :part/qty 4 :part/unit-jpy 60 :part/supplier "DigiKey" :part/sourcing :spec}
+  {:part/id "otete:E10" :part/name "Current sense IC" :part/group "control-electronics" :part/procurement :cots :part/manufacturer "Rohm" :part/product "BD49000" :part/mpn "BD49000" :part/qty 1 :part/unit-jpy 280 :part/supplier "DigiKey" :part/sourcing :spec}
+
+  ;; ── power ─────────────────────────────────────────────────────────────────
+  {:part/id "otete:P1" :part/name "18650 Li-ion cell" :part/group "power" :part/procurement :cots :part/manufacturer "Panasonic Energy" :part/product "NCR18650B" :part/mpn "NCR18650B" :part/qty 4 :part/unit-jpy 820 :part/supplier "Panasonic dealer" :part/sourcing :spec}
+  {:part/id "otete:P2" :part/name "4S 18650 holder" :part/group "power" :part/procurement :cots :part/manufacturer "Takachi" :part/product "BH-18650-4S" :part/mpn "BH-18650-4S" :part/qty 1 :part/unit-jpy 480 :part/supplier "Takachi/Monotaro" :part/sourcing :spec}
+  {:part/id "otete:P3" :part/name "BMS (4S protection)" :part/group "power" :part/procurement :custom-fab :part/fab-process "custom 4S 15A protect + balance" :part/qty 1 :part/unit-jpy 1200 :part/supplier "Akizuki" :part/sourcing :spec}
+  {:part/id "otete:P4" :part/name "DC-DC 5V/5A" :part/group "power" :part/procurement :cots :part/manufacturer "TDK-Lambda" :part/product "PH50S12-5" :part/mpn "PH50S12-5" :part/qty 1 :part/unit-jpy 3200 :part/supplier "TDK-Lambda dealer" :part/sourcing :spec}
+  {:part/id "otete:P5" :part/name "DC-DC 7.4V/3A (servo)" :part/group "power" :part/procurement :cots :part/manufacturer "Cosel" :part/product "PFJA030" :part/mpn "PFJA030" :part/qty 1 :part/unit-jpy 4800 :part/supplier "Cosel/RS" :part/sourcing :spec}
+  {:part/id "otete:P6" :part/name "USB-C charge port" :part/group "power" :part/procurement :cots :part/manufacturer "Hirose" :part/product "ZX62-B-5PA" :part/mpn "ZX62-B-5PA" :part/qty 1 :part/unit-jpy 180 :part/supplier "RS Components" :part/sourcing :spec}
+  {:part/id "otete:P7" :part/name "Power connector XT30" :part/group "power" :part/procurement :cots :part/manufacturer "Amphenol" :part/product "XT30U-M/F" :part/mpn "XT30U" :part/qty 2 :part/unit-jpy 120 :part/supplier "Akizuki" :part/sourcing :spec}
+
+  ;; ── exterior / cable / other ──────────────────────────────────────────────
+  {:part/id "otete:X1" :part/name "TPU cover (crawler)" :part/group "exterior" :part/procurement :custom-fab :part/fab-process "TPU 95A, domestic 3D print" :part/qty 1 :part/unit-jpy 2800 :part/supplier "DMM.make" :part/sourcing :spec}
+  {:part/id "otete:X2" :part/name "Acrylic cover (electronics)" :part/group "exterior" :part/procurement :custom-fab :part/fab-process "clear acrylic, laser cut" :part/qty 1 :part/unit-jpy 1200 :part/supplier "Takachi" :part/sourcing :spec}
+  {:part/id "otete:X3" :part/name "Flexible flat cable" :part/group "exterior" :part/procurement :cots :part/manufacturer "Sumitomo Electric" :part/product "FFC 0.5mm pitch 26-core" :part/qty 1 :part/unit-jpy 600 :part/supplier "RS Components" :part/sourcing :spec}
+  {:part/id "otete:X4" :part/name "Servo bus cable (ICS3.5)" :part/group "exterior" :part/procurement :cots :part/manufacturer "Kondo Kagaku" :part/product "ICS3.5 cable" :part/qty 8 :part/unit-jpy 180 :part/supplier "Kondo" :part/sourcing :spec}
+  {:part/id "otete:X5" :part/name "Wiring tube + clamp" :part/group "exterior" :part/procurement :cots :part/manufacturer "Misumi" :part/product "CBT-4/6" :part/mpn "CBT-4" :part/qty 1 :part/unit-jpy 400 :part/supplier "Misumi" :part/sourcing :spec}
+  {:part/id "otete:X6" :part/name "Camera pan/tilt mount" :part/group "exterior" :part/procurement :custom-fab :part/fab-process "AL6061 2-axis pan/tilt" :part/qty 1 :part/unit-jpy 1600 :part/supplier "Meviy" :part/sourcing :spec}
+  {:part/id "otete:X7" :part/name "Anti-vibration grommet" :part/group "exterior" :part/procurement :cots :part/manufacturer "Nitta / Sumitomo Riko" :part/product "GR-3M" :part/mpn "GR-3M" :part/qty 20 :part/unit-jpy 40 :part/supplier "Monotaro" :part/sourcing :spec}
+  {:part/id "otete:X8" :part/name "Manual / assembly guide (print)" :part/group "exterior" :part/procurement :custom-fab :part/fab-process "A4 colour 32p JP+EN print" :part/qty 1 :part/unit-jpy 600 :part/supplier "domestic printer" :part/sourcing :spec}
+  {:part/id "otete:X9" :part/name "Package box" :part/group "exterior" :part/procurement :custom-fab :part/fab-process "2-ply board, full-colour" :part/qty 1 :part/unit-jpy 900 :part/supplier "DNP" :part/sourcing :spec}]}

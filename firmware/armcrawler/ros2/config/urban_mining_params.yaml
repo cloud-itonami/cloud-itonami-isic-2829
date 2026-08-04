@@ -1,0 +1,38 @@
+urban_mining_classifier:
+  ros__parameters:
+    low_confidence_threshold: 0.68
+    battery_labels:
+      - battery-visible
+      - swollen-battery
+      - li-ion
+    stream_rules:
+      smartphone:
+        destination_bin: li_ion_isolation
+        target_materials: [au, ag, cu, li, co]
+      pc:
+        destination_bin: mixed_pcb
+        target_materials: [au, ag, cu]
+      server:
+        destination_bin: mixed_pcb
+        target_materials: [au, ag, cu, pd]
+      battery-li-ion:
+        destination_bin: li_ion_isolation
+        target_materials: [li, co, ni, cu]
+      mixed-pcb:
+        destination_bin: mixed_pcb
+        target_materials: [au, ag, cu, pd]
+      rare-earth-magnet:
+        destination_bin: rare_earth_magnet
+        target_materials: [nd, dy]
+
+urban_mining_sorter:
+  ros__parameters:
+    arm_ready_status: ready
+    bin_targets:
+      manual_review: [3.95, 0.52, 0.42, 0.0, 0.0, 1.5708]
+      li_ion_isolation: [3.95, 0.92, 0.42, 0.0, 0.0, 1.5708]
+      mixed_pcb: [3.95, 1.34, 0.42, 0.0, 0.0, 1.5708]
+      copper_aluminum: [3.95, 1.76, 0.42, 0.0, 0.0, 1.5708]
+      ferrous: [3.95, 2.18, 0.42, 0.0, 0.0, 1.5708]
+      rare_earth_magnet: [3.95, 2.60, 0.42, 0.0, 0.0, 1.5708]
+      reject: [3.95, 2.88, 0.42, 0.0, 0.0, 1.5708]

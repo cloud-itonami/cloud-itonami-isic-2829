@@ -1,0 +1,620 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "device",
+      "name": "Giemon Otete — software stack SBOM (RPi5 / Ubuntu 22.04 / ROS2 Humble / Python 3.11)",
+      "version": "v1"
+    },
+    "properties": [
+      {
+        "name": "giemon:bomOf",
+        "value": "giemon-otete-sw"
+      },
+      {
+        "name": "giemon:sourcing",
+        "value": "spec"
+      },
+      {
+        "name": "giemon:note",
+        "value": "From firmware/pyproject.toml + ros2/package.xml. PyPI deps are OSV-matchable; ROS2 debs have limited OSV coverage."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "device",
+      "bom-ref": "sw:pyserial",
+      "name": "pyserial",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "pySerial"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=3.5"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/pyserial"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "pySerial",
+      "supplier": {
+        "name": "pySerial"
+      },
+      "version": ">=3.5",
+      "purl": "pkg:pypi/pyserial"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:numpy",
+      "name": "numpy",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "NumPy"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=1.26"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/numpy"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "NumPy",
+      "supplier": {
+        "name": "NumPy"
+      },
+      "version": ">=1.26",
+      "purl": "pkg:pypi/numpy"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:scipy",
+      "name": "scipy",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "SciPy"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=1.12"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/scipy"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "SciPy",
+      "supplier": {
+        "name": "SciPy"
+      },
+      "version": ">=1.12",
+      "purl": "pkg:pypi/scipy"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:smbus2",
+      "name": "smbus2",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "kplindegaard"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=0.4"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/smbus2"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "kplindegaard",
+      "supplier": {
+        "name": "kplindegaard"
+      },
+      "version": ">=0.4",
+      "purl": "pkg:pypi/smbus2"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:picamera2",
+      "name": "picamera2",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Raspberry Pi Ltd"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=0.3"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/picamera2"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Raspberry Pi Ltd",
+      "supplier": {
+        "name": "Raspberry Pi Ltd"
+      },
+      "version": ">=0.3",
+      "purl": "pkg:pypi/picamera2"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:rpi-gpio",
+      "name": "RPi.GPIO",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Ben Croston"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=0.7"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/rpi.gpio"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Ben Croston",
+      "supplier": {
+        "name": "Ben Croston"
+      },
+      "version": ">=0.7",
+      "purl": "pkg:pypi/rpi.gpio"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:setuptools",
+      "name": "setuptools",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "PyPA"
+        },
+        {
+          "name": "giemon:product",
+          "value": "(ros2 build)"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/setuptools"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "PyPA",
+      "supplier": {
+        "name": "PyPA"
+      },
+      "version": "(ros2 build)",
+      "purl": "pkg:pypi/setuptools"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:hatchling",
+      "name": "hatchling",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "PyPA"
+        },
+        {
+          "name": "giemon:product",
+          "value": "(build)"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/hatchling"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "PyPA",
+      "supplier": {
+        "name": "PyPA"
+      },
+      "version": "(build)",
+      "purl": "pkg:pypi/hatchling"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:pytest",
+      "name": "pytest",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "pytest-dev"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=8.0"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/pytest"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "pytest-dev",
+      "supplier": {
+        "name": "pytest-dev"
+      },
+      "version": ">=8.0",
+      "purl": "pkg:pypi/pytest"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:pytest-mock",
+      "name": "pytest-mock",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-pydep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "pytest-dev"
+        },
+        {
+          "name": "giemon:product",
+          "value": ">=3.12"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:pypi/pytest-mock"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "pytest-dev",
+      "supplier": {
+        "name": "pytest-dev"
+      },
+      "version": ">=3.12",
+      "purl": "pkg:pypi/pytest-mock"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:rclpy",
+      "name": "rclpy",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-rosdep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Open Robotics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "humble"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:deb/ros-humble-rclpy"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Open Robotics",
+      "supplier": {
+        "name": "Open Robotics"
+      },
+      "version": "humble",
+      "purl": "pkg:deb/ros-humble-rclpy"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:sensor-msgs",
+      "name": "sensor_msgs",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-rosdep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Open Robotics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "humble"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:deb/ros-humble-sensor-msgs"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Open Robotics",
+      "supplier": {
+        "name": "Open Robotics"
+      },
+      "version": "humble",
+      "purl": "pkg:deb/ros-humble-sensor-msgs"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:geometry-msgs",
+      "name": "geometry_msgs",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-rosdep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Open Robotics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "humble"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:deb/ros-humble-geometry-msgs"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Open Robotics",
+      "supplier": {
+        "name": "Open Robotics"
+      },
+      "version": "humble",
+      "purl": "pkg:deb/ros-humble-geometry-msgs"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:trajectory-msgs",
+      "name": "trajectory_msgs",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-rosdep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Open Robotics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "humble"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:deb/ros-humble-trajectory-msgs"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Open Robotics",
+      "supplier": {
+        "name": "Open Robotics"
+      },
+      "version": "humble",
+      "purl": "pkg:deb/ros-humble-trajectory-msgs"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:tf2-ros",
+      "name": "tf2_ros",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-rosdep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Open Robotics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "humble"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:deb/ros-humble-tf2-ros"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Open Robotics",
+      "supplier": {
+        "name": "Open Robotics"
+      },
+      "version": "humble",
+      "purl": "pkg:deb/ros-humble-tf2-ros"
+    },
+    {
+      "type": "device",
+      "bom-ref": "sw:nav-msgs",
+      "name": "nav_msgs",
+      "properties": [
+        {
+          "name": "giemon:group",
+          "value": "software-rosdep"
+        },
+        {
+          "name": "giemon:procurement",
+          "value": "cots"
+        },
+        {
+          "name": "giemon:manufacturer",
+          "value": "Open Robotics"
+        },
+        {
+          "name": "giemon:product",
+          "value": "humble"
+        },
+        {
+          "name": "giemon:purl",
+          "value": "pkg:deb/ros-humble-nav-msgs"
+        },
+        {
+          "name": "giemon:sourcing",
+          "value": "spec"
+        }
+      ],
+      "publisher": "Open Robotics",
+      "supplier": {
+        "name": "Open Robotics"
+      },
+      "version": "humble",
+      "purl": "pkg:deb/ros-humble-nav-msgs"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+;; Scoped bb.edn for the open-robo clj port (ADR-2606280030).
+;; Does NOT touch the repo-root bb.edn. No external deps: this is a pure-stdlib
+;; port (clojure.set + java.lang.Math only), so it loads on a bare babashka.
+{:paths ["src" "test"]
+ :tasks
+ {test {:doc "Run the clojure.test suite under babashka"
+        :task (shell "bb" "run_tests.clj")}}}

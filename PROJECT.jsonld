@@ -1,0 +1,91 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Project",
+  "name": "etzhayyim-project-open-robo",
+  "description": "Open-hardware Japanese-made 6-DOF arm + crawler robot kit. Raspberry Pi 5 base, all structural/electronic components sourced and manufactured in Japan. Crowdfunding via Makuake + Kickstarter.",
+  "category": "open-hardware robotics",
+  "capabilities": [
+    "robot-kit-bom",
+    "robot-kit-cad-spec",
+    "robot-kit-assembly-manual",
+    "urban-mining-robotics-automation",
+    "urban-mining-cad-spec",
+    "urban-mining-usd-world-model",
+    "urban-mining-business-model",
+    "urban-mining-ros2-sorter",
+    "crowdfunding-makuake",
+    "crowdfunding-kickstarter",
+    "amazon-jp-listing",
+    "product-website",
+    "raspi5-firmware",
+    "servo-kinematics",
+    "crawler-drive-control",
+    "ros2-integration"
+  ],
+  "performers": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "open-robo-hp",
+      "deliveryMethod": "cdn",
+      "description": "Product landing page + documentation site"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "open-robo-firmware",
+      "deliveryMethod": "github-release",
+      "description": "Raspberry Pi 5 firmware: servo bus driver (KONDO ICS / Futaba RS485), crawler DC motor driver, inverse kinematics, ROS2 node"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "urban-mining-automation-cell",
+      "deliveryMethod": "github-release",
+      "description": "ROS2 classifier/sorter nodes, CAD spec, USD world model, and public business model for robotic e-waste recovery cells"
+    }
+  ],
+  "isPartOf": {
+    "@type": "Project",
+    "name": "etzhayyim-project-tsukuru",
+    "url": "https://tsukuru.etzhayyim.com",
+    "description": "Manufacturing orders, Meviy/P-Ban.com quotes, production tracking managed via tsukuru"
+  },
+  "relatedLink": [
+    {
+      "@type": "LinkRole",
+      "name": "tsukuru CAD design flow",
+      "description": "LangGraph topology: Fusion360 STEP → Meviy quote → order → delivery → fit check",
+      "url": "https://tsukuru.etzhayyim.com",
+      "linkRelationship": "tsukuru_cad_design_flow.v1",
+      "additionalType": "productRef=etzhayyim-project-open-robo"
+    },
+    {
+      "@type": "LinkRole",
+      "name": "tsukuru PCB design flow",
+      "description": "LangGraph topology: KiCad Gerber → P-Ban.com quote → order → assembly → test",
+      "url": "https://tsukuru.etzhayyim.com",
+      "linkRelationship": "tsukuru_pcb_design_flow.v1",
+      "additionalType": "productRef=etzhayyim-project-open-robo"
+    },
+    {
+      "@type": "LinkRole",
+      "name": "toshiKozan material stream contract",
+      "description": "Urban mining e-waste stream records used by robotic sort audit events",
+      "url": "https://github.com/etzhayyim/etzhayyim-root/tree/main/00-contracts/lexicons/com/etzhayyim/apps/toshiKozan",
+      "linkRelationship": "toshi_kozan_ewaste_stream.v1",
+      "additionalType": "productRef=etzhayyim-project-open-robo"
+    }
+  ],
+  "manufacturingPartner": [
+    {
+      "@type": "Organization",
+      "name": "ミスミ Meviy",
+      "description": "CNC切削アルミ部品（AL6061）、翌日納品",
+      "tsukuruVendorDid": "did:web:misumi-meviy.tsukuru.etzhayyim.com"
+    },
+    {
+      "@type": "Organization",
+      "name": "P-Ban.com",
+      "description": "PCB製造・実装（2層、少量対応）",
+      "tsukuruVendorDid": "did:web:pban-com.tsukuru.etzhayyim.com"
+    }
+  ]
+}

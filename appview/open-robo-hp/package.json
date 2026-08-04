@@ -1,0 +1,14 @@
+{
+  "name": "etzhayyim-project-open-robo-hp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd svelte && npm run build",
+    "dev": "cd svelte && npm run dev",
+    "preview": "cd svelte && npm run preview"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

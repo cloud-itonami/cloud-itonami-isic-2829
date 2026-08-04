@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Giemon — 3D Viewer</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #0d1117; }
+    #gc { display: block; width: 100vw; height: 100vh; }
+    #hint {
+      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+      background: rgba(13,17,23,0.75); backdrop-filter: blur(6px);
+      border: 1px solid rgba(232,93,4,0.35); border-radius: 20px;
+      padding: 5px 14px; font: 11px/1.6 system-ui, sans-serif;
+      color: #94a3b8; pointer-events: none; white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+<canvas id="gc"></canvas>
+<div id="hint">ドラッグ: 回転 &nbsp;|&nbsp; スクロール: ズーム &nbsp;|&nbsp; クリック: 部品ハイライト</div>
+<script type="module">
+import init, { run_giemon_v1, run_giemon_hitogata_v1, run_giemon_caterpillar_v1 }
+  from './viewer/kami_app_giemon.js';
+await init('./viewer/kami_app_giemon_bg.wasm');
+
+const model = new URLSearchParams(location.search).get('model') ?? 'arm';
+if (model === 'hitogata')    await run_giemon_hitogata_v1('gc');
+else if (model === 'caterpillar') await run_giemon_caterpillar_v1('gc');
+else                         await run_giemon_v1('gc');
+
+document.getElementById('hint').style.transition = 'opacity 1s';
+setTimeout(() => { const h = document.getElementById('hint'); if (h) h.style.opacity = '0'; }, 5000);
+</script>
+</body>
+</html>
