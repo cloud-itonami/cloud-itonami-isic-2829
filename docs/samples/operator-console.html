@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cloud-itonami-isic-2829 · 特殊用途機械プラント運用 Operator Console</title>
+<style>
+:root{
+  --color-neutral-white:#ffffff;
+  --color-neutral-black:#000000;
+  --color-neutral-solid-gray-50:#f2f2f2;
+  --color-neutral-solid-gray-100:#e6e6e6;
+  --color-neutral-solid-gray-200:#cccccc;
+  --color-neutral-solid-gray-300:#b3b3b3;
+  --color-neutral-solid-gray-536:#767676;
+  --color-neutral-solid-gray-600:#666666;
+  --color-neutral-solid-gray-700:#4d4d4d;
+  --color-neutral-solid-gray-800:#333333;
+  --color-neutral-solid-gray-900:#1a1a1a;
+  --color-primitive-blue-50:#e8f1fe;
+  --color-primitive-blue-100:#d9e6ff;
+  --color-primitive-blue-200:#c5d7fb;
+  --color-primitive-blue-800:#0031d8;
+  --color-primitive-blue-900:#0017c1;
+  --color-primitive-blue-1000:#00118f;
+  --color-primitive-blue-1100:#000071;
+  --color-primitive-red-50:#fdeeee;
+  --color-primitive-red-100:#ffdada;
+  --color-primitive-red-900:#ce0000;
+  --color-primitive-red-1000:#a90000;
+  --color-primitive-red-1100:#850000;
+  --color-primitive-green-50:#e6f5ec;
+  --color-primitive-green-100:#c2e5d1;
+  --color-primitive-green-900:#115a36;
+  --color-primitive-green-1000:#0c472a;
+  --color-primitive-orange-50:#ffeee2;
+  --color-primitive-orange-100:#ffdfca;
+  --color-primitive-orange-1000:#8b3200;
+  --color-primitive-orange-1100:#6d2700;
+  --color-key:var(--color-primitive-blue-900);
+  --color-key-strong:var(--color-primitive-blue-1100);
+  --color-key-tint:var(--color-primitive-blue-50);
+  --color-key-border:var(--color-primitive-blue-200);
+  --color-success:var(--color-primitive-green-1000);
+  --color-success-tint:var(--color-primitive-green-50);
+  --color-success-border:var(--color-primitive-green-100);
+  --color-error:var(--color-primitive-red-1100);
+  --color-error-tint:var(--color-primitive-red-50);
+  --color-error-border:var(--color-primitive-red-100);
+  --color-warning:var(--color-primitive-orange-1100);
+  --color-warning-tint:var(--color-primitive-orange-50);
+  --color-warning-border:var(--color-primitive-orange-100);
+  --color-text:var(--color-neutral-solid-gray-900);
+  --color-text-muted:var(--color-neutral-solid-gray-600);
+  --color-border:var(--color-neutral-solid-gray-200);
+  --color-border-subtle:var(--color-neutral-solid-gray-100);
+  --color-surface:var(--color-neutral-white);
+  --color-canvas:var(--color-neutral-solid-gray-50);
+  --font-family-sans:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic Medium',
+    system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-family-mono:'SFMono-Regular',Menlo,Consolas,'Noto Sans Mono',monospace;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:24px; --space-6:32px; --space-8:48px;
+  --radius-sm:4px; --radius-md:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;background:var(--color-canvas);color:var(--color-text);
+font-family:var(--font-family-sans);line-height:1.7;
+-webkit-font-smoothing:antialiased;}
+header.bar{background:var(--color-key-strong);color:var(--color-neutral-white);
+padding:var(--space-6) var(--space-5);}
+header.bar .wrap{max-width:1180px;margin:0 auto;}
+header.bar h1{margin:0 0 var(--space-3);font-size:1.5rem;line-height:1.4;}
+header.bar p{margin:0;color:var(--color-primitive-blue-100);font-size:0.9rem;}
+header.bar .badge{display:inline-block;margin-top:var(--space-4);
+padding:var(--space-1) var(--space-3);border-radius:var(--radius-sm);
+background:var(--color-primitive-blue-1000);color:var(--color-neutral-white);
+font-size:0.8rem;font-family:var(--font-family-mono);}
+main{max-width:1180px;margin:0 auto;padding:var(--space-6) var(--space-5) var(--space-8);}
+section.card{background:var(--color-surface);border:1px solid var(--color-border);
+border-radius:var(--radius-md);padding:var(--space-5);margin-bottom:var(--space-5);}
+section.card h2{margin:0 0 var(--space-2);font-size:1.15rem;color:var(--color-key-strong);}
+section.card p.lead{margin:0 0 var(--space-4);color:var(--color-text-muted);
+font-size:0.875rem;}
+table{width:100%;border-collapse:collapse;font-size:0.85rem;}
+thead th{text-align:left;padding:var(--space-2) var(--space-3);
+background:var(--color-key-tint);color:var(--color-key-strong);
+border-bottom:2px solid var(--color-key-border);white-space:nowrap;font-weight:600;}
+tbody td{padding:var(--space-2) var(--space-3);
+border-bottom:1px solid var(--color-border-subtle);vertical-align:top;}
+tbody tr:last-child td{border-bottom:none;}
+code{font-family:var(--font-family-mono);font-size:0.82em;
+background:var(--color-neutral-solid-gray-50);color:var(--color-neutral-solid-gray-800);
+padding:1px var(--space-1);border-radius:var(--radius-sm);
+border:1px solid var(--color-border-subtle);}
+span.ok,span.warn,span.bad,span.muted{display:inline-block;
+padding:1px var(--space-2);border-radius:var(--radius-sm);font-size:0.8rem;
+white-space:nowrap;border:1px solid transparent;}
+span.ok{background:var(--color-success-tint);color:var(--color-success);
+border-color:var(--color-success-border);}
+span.warn{background:var(--color-warning-tint);color:var(--color-warning);
+border-color:var(--color-warning-border);}
+span.bad{background:var(--color-error-tint);color:var(--color-error);
+border-color:var(--color-error-border);}
+span.muted{background:var(--color-neutral-solid-gray-50);
+color:var(--color-neutral-solid-gray-536);border-color:var(--color-border-subtle);}
+dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:var(--space-2) var(--space-4);
+margin:0;font-size:0.85rem;}
+dl.kv dt{color:var(--color-text-muted);}
+dl.kv dd{margin:0;font-family:var(--font-family-mono);
+color:var(--color-neutral-solid-gray-800);}
+p.note{margin:var(--space-4) 0 0;padding:var(--space-3) var(--space-4);
+background:var(--color-warning-tint);border-left:4px solid var(--color-warning);
+border-radius:var(--radius-sm);font-size:0.83rem;color:var(--color-neutral-solid-gray-800);}
+footer{max-width:1180px;margin:0 auto;padding:0 var(--space-5) var(--space-8);
+color:var(--color-text-muted);font-size:0.8rem;}
+footer code{background:var(--color-neutral-solid-gray-100);}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <h1>その他の特殊目的用機械の製造 (ISIC 2829) — Operator Console</h1>
+    <p>Special-Purpose Machinery Plant Operations Governor · industrial printing-press &amp; semiconductor-lithography manufacturing · propose-only actor</p>
+    <span class="badge">generated · 21 ledger facts · 16 holds · 14 distinct hold reasons</span>
+  </div>
+</header>
+<main>
+  <section class="card">
+    <h2>生産バッチ (production batches) — SSoT</h2>
+    <p class="lead">Read back out of <code>printpressmfg.store</code> AFTER the run. <code>shipped</code> is the batch's own cumulative ground truth, which <code>governor</code> rule <code>:shipment-quantity-exceeded</code> independently recomputes against — it is never taken from a proposal.</p>
+    <table>
+      <thead><tr><th>batch</th><th>product-type</th><th>model</th><th>registration acc. (mm)</th><th>quantity</th><th>shipped</th><th>defect %</th><th>verified?</th><th>registered?</th><th>last op</th></tr></thead>
+      <tbody>
+        <tr><td><code>batch-001</code></td><td><code>:offset-press</code></td><td>OFF-6C-1020</td><td>0.05</td><td>25.0</td><td>25.0</td><td>0.6</td><td><span class="ok">yes</span></td><td><span class="ok">yes</span></td><td><span class="bad">HARD hold · invalid-defect-rate</span></td></tr>
+        <tr><td><code>batch-002</code></td><td><code>:flexographic-press</code></td><td>FLX-Wide-880</td><td>0.08</td><td>15.0</td><td>14.0</td><td>0.4</td><td><span class="ok">yes</span></td><td><span class="ok">yes</span></td><td><span class="muted">no activity</span></td></tr>
+        <tr><td><code>batch-003</code></td><td><code>:gravure-press</code></td><td>GRV-Cyl-450</td><td>0.12</td><td>10.0</td><td>0.0</td><td>1.0</td><td><span class="bad">no</span></td><td><span class="bad">no</span></td><td><span class="muted">no activity</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>設備 (fabrication line / commissioning bench) — SSoT</h2>
+    <p class="lead"><code>bench-002</code> is seeded UNVERIFIED and unregistered, which is why every maintenance window proposed against it is HARD-held by <code>:equipment-not-verified</code> — the governor re-derives both flags from the equipment's own record and never trusts the advisor's rationale.</p>
+    <table>
+      <thead><tr><th>equipment</th><th>kind</th><th>verified?</th><th>registered?</th><th>last maintenance</th><th>last scheduled</th><th>last op</th></tr></thead>
+      <tbody>
+        <tr><td><code>bench-002</code></td><td><code>:press-commissioning-bench</code></td><td><span class="bad">no</span></td><td><span class="bad">no</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">no activity</span></td></tr>
+        <tr><td><code>fab-001</code></td><td><code>:fabrication-line</code></td><td><span class="ok">yes</span></td><td><span class="ok">yes</span></td><td>2026-05-01</td><td>2026-08-01</td><td><span class="bad">HARD hold · unknown-op</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>保守作業予定ドラフト (maintenance schedule drafts)</h2>
+    <p class="lead">Committed drafts only. Each carries the immutable <code>MNT-nnnnnn</code> number minted by <code>printpressmfg.registry/register-maintenance</code>, and a dedicated <code>:scheduled?</code> fact — never a <code>:status</code> value — which backs the <code>:already-scheduled</code> double-schedule guard.</p>
+    <table>
+      <thead><tr><th>maintenance</th><th>equipment</th><th>type</th><th>scheduled date</th><th>record no.</th><th>scheduled?</th><th>approver in record?</th></tr></thead>
+      <tbody>
+        <tr><td><code>mnt-1</code></td><td><code>fab-001</code></td><td><code>:feeder-inspection</code></td><td>2026-08-01</td><td><code>MNT-000000</code></td><td><span class="ok">yes</span></td><td><span class="bad">absent</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>出荷調整ドラフト (shipment coordination drafts)</h2>
+    <p class="lead">Committed drafts only, in the append-only order <code>printpressmfg.registry/register-shipment</code> minted them. <code>ship-2</code> fills <code>batch-001</code> EXACTLY to its recorded 25-unit capacity — legal, and the reason <code>shipment-quantity-exceeded?</code> compares at 1/10000 of a unit rather than on raw doubles.</p>
+    <table>
+      <thead><tr><th>record no.</th><th>shipment</th><th>batch</th><th>units</th><th>destination</th><th>approver in record?</th></tr></thead>
+      <tbody>
+        <tr><td><code>SHP-000000</code></td><td><code>ship-1</code></td><td><code>batch-001</code></td><td>10.0</td><td>buyer-print-shop-north</td><td><span class="bad">absent</span></td></tr>
+        <tr><td><code>SHP-000001</code></td><td><code>ship-2</code></td><td><code>batch-001</code></td><td>7.0</td><td>buyer-print-shop-west</td><td><span class="bad">absent</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>安全懸念ログ (safety-concern log)</h2>
+    <p class="lead"><code>:flag-safety-concern</code> carries <code>:stake :coordination/safety-concern</code>, which is permanently in <code>governor/high-stakes</code>. It ALWAYS escalates to a human regardless of confidence, and no phase ever lists it in an <code>:auto</code> set — two independent layers agree.</p>
+    <table>
+      <thead><tr><th>concern</th><th>equipment</th><th>severity</th><th>description</th><th>approver in record?</th></tr></thead>
+      <tbody>
+        <tr><td><code>concern-1</code></td><td><code>fab-001</code></td><td><code>:moderate</code></td><td>印刷胴のニップ点付近の異音、巻き込みリスク兆候</td><td><span class="bad">absent</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>HARD holds — 16 held proposals, 14 distinct reasons</h2>
+    <p class="lead">Every rejection this run produced. A governor HARD hold NEVER reaches a human and can never be overridden by any phase or approval; a <code>phase</code> hold is the rollout gate refusing an op the current phase has not enabled; <code>approver-rejected</code> is a human saying no to a proposal the governor had already cleared. Reasons and details are read out of the ledger — not enumerated here.</p>
+    <table>
+      <thead><tr><th>source</th><th>op</th><th>subject</th><th>rule</th><th>confidence</th><th>detail</th></tr></thead>
+      <tbody>
+        <tr><td><span class="warn">human approver</span></td><td><code>:schedule-maintenance</code></td><td><code>mnt-9</code></td><td><code>:approver-rejected</code></td><td>0.9</td><td><span class="muted">phase  — </span></td></tr>
+        <tr><td><span class="warn">phase gate</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:phase-disabled</code></td><td>0.95</td><td><span class="muted">phase 0 — :phase-disabled</span></td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:not-propose-effect</code></td><td>0.95</td><td>request :effect は :propose のみ許可 (受信値: :direct-write)</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:actuate-fabrication-line</code></td><td><code>fab-001</code></td><td><code>:unknown-op</code></td><td>0.0</td><td>:actuate-fabrication-line はこの actor が扱う操作の許可リストに無い</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:equipment-control-blocked</code></td><td>0.95</td><td>proposal :effect (:fabrication-line/actuate) は組立・製造設備の直接操作に該当する可能性があり、恒久的に禁止</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:schedule-maintenance</code></td><td><code>mnt-3</code></td><td><code>:equipment-actuate-blocked</code></td><td>0.3</td><td>組立・製造設備の直接操作(actuate)提案は恒久的に禁止 -- 提案(draft)のみ許可</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:certification-authority-blocked</code></td><td>0.95</td><td>機械安全適合性(CE 2006/42/EC・ANSI B65.1等)の自己発行提案は恒久的に禁止 -- 認証機関の専権事項</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:schedule-maintenance</code></td><td><code>mnt-5</code></td><td><code>:certification-authority-blocked</code></td><td>0.9</td><td>機械安全適合性(CE 2006/42/EC・ANSI B65.1等)の自己発行提案は恒久的に禁止 -- 認証機関の専権事項</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:schedule-maintenance</code></td><td><code>mnt-2</code></td><td><code>:equipment-not-verified</code></td><td>0.3</td><td>bench-002 は未検証または未登録、もしくは存在しない -- 検証済み・登録済み設備記録が無い状態での保守作業予定提案</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:schedule-maintenance</code></td><td><code>mnt-1</code></td><td><code>:already-scheduled</code></td><td>0.9</td><td>mnt-1 は既にスケジュール済み</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:coordinate-shipment</code></td><td><code>ship-3</code></td><td><code>:batch-not-verified</code></td><td>0.3</td><td>batch-003 は未検証または未登録、もしくは存在しない -- 検証済み・登録済みバッチ記録が無い状態での出荷調整提案</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:coordinate-shipment</code></td><td><code>ship-4</code></td><td><code>:shipment-quantity-exceeded</code></td><td>0.3</td><td>batch-002 の記録済み生産数量(15.0個)を、既存出荷実績(14.0個)+今回申請(5.0個)が超過</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:coordinate-shipment</code></td><td><code>ship-5</code></td><td><code>:shipment-quantity-exceeded</code></td><td>0.9</td><td>生産量/既存出荷実績/申請量のいずれかが数値として確定できない -- 空き容量を検算できないため出荷しない</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:invalid-product-type</code></td><td>0.95</td><td>:unobtainium は既知の product-type 値ではない</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:invalid-registration-accuracy</code></td><td>0.95</td><td>999.0mm は物理的に妥当な見当合わせ精度試験値の範囲外</td></tr>
+        <tr><td><span class="bad">governor</span></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><code>:invalid-defect-rate</code></td><td>0.95</td><td>999.0% は物理的に妥当な不良率の範囲外</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>Rule coverage — 14 distinct hold reasons exercised</h2>
+    <p class="lead">Derived by folding the run's own ledger, so this table cannot claim a rule the scenario did not actually trip. <code>printpressmfg.governor</code> defines twelve HARD rules; <code>printpressmfg.phase</code> contributes <code>phase-disabled</code> and the approval path contributes <code>approver-rejected</code>.</p>
+    <table>
+      <thead><tr><th>hold reason</th><th>times tripped</th></tr></thead>
+      <tbody>
+        <tr><td><code>already-scheduled</code></td><td>1</td></tr>
+        <tr><td><code>approver-rejected</code></td><td>1</td></tr>
+        <tr><td><code>batch-not-verified</code></td><td>1</td></tr>
+        <tr><td><code>certification-authority-blocked</code></td><td>2</td></tr>
+        <tr><td><code>equipment-actuate-blocked</code></td><td>1</td></tr>
+        <tr><td><code>equipment-control-blocked</code></td><td>2</td></tr>
+        <tr><td><code>equipment-not-verified</code></td><td>1</td></tr>
+        <tr><td><code>invalid-defect-rate</code></td><td>1</td></tr>
+        <tr><td><code>invalid-product-type</code></td><td>1</td></tr>
+        <tr><td><code>invalid-registration-accuracy</code></td><td>1</td></tr>
+        <tr><td><code>not-propose-effect</code></td><td>1</td></tr>
+        <tr><td><code>phase-disabled</code></td><td>1</td></tr>
+        <tr><td><code>shipment-quantity-exceeded</code></td><td>2</td></tr>
+        <tr><td><code>unknown-op</code></td><td>1</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>Action gate — rollout phases (<code>printpressmfg.phase/phases</code>)</h2>
+    <p class="lead">Read directly from the real <code>phases</code> var, not transcribed. <code>:schedule-maintenance</code> is a member of <code>write-ops</code> but is deliberately ABSENT from EVERY phase's <code>:auto</code> set including phase 3 — a permanent structural fact, not a rollout milestone still to come.</p>
+    <table>
+      <thead><tr><th>phase</th><th>label</th><th>may write</th><th>may auto-commit when governor-clean</th></tr></thead>
+      <tbody>
+        <tr><td><code>0</code></td><td>read-only</td><td><span class="muted">none</span></td><td><span class="muted">none — every write needs a human</span></td></tr>
+        <tr><td><code>1</code></td><td>assisted-intake</td><td><code>:log-production-batch</code></td><td><span class="muted">none — every write needs a human</span></td></tr>
+        <tr><td><code>2</code></td><td>assisted-coordinate</td><td><code>:coordinate-shipment</code> <code>:flag-safety-concern</code> <code>:log-production-batch</code></td><td><span class="muted">none — every write needs a human</span></td></tr>
+        <tr><td><code>3</code></td><td>supervised-auto <span class="ok">default</span></td><td><code>:coordinate-shipment</code> <code>:flag-safety-concern</code> <code>:log-production-batch</code> <code>:schedule-maintenance</code></td><td><code>:log-production-batch</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>Governor contract (<code>printpressmfg.governor</code>)</h2>
+    <p class="lead">The closed allowlists and the confidence floor, read out of the real vars. A proposal whose own <code>:effect</code> falls outside the effect allowlist is direct fabrication/assembly-line-equipment control — this actor's central, permanent scope boundary.</p>
+    <dl class="kv">
+      <dt>allowed ops</dt><dd><code>:coordinate-shipment</code> <code>:flag-safety-concern</code> <code>:log-production-batch</code> <code>:schedule-maintenance</code></dd>
+      <dt>allowed proposal effects</dt><dd><code>:batch/upsert</code> <code>:maintenance/schedule</code> <code>:safety-concern/flag</code> <code>:shipment/propose</code></dd>
+      <dt>always-human stakes</dt><dd><code>:coordination/safety-concern</code></dd>
+      <dt>confidence floor</dt><dd>0.6</dd>
+    </dl>
+  </section>
+  <section class="card">
+    <h2>Approver attribution — audit ledger vs. SSoT</h2>
+    <p class="lead">MEASURED at render time by walking every committed register and asking whether the <code>:approved-by</code> key is actually present, so this section self-corrects if the store is later fixed. It is not hardcoded.</p>
+    <table>
+      <thead><tr><th>op</th><th>subject</th><th>approved by (audit ledger)</th><th>approver in commit record?</th></tr></thead>
+      <tbody>
+        <tr><td colspan="9"><span class="muted">no rows</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Measured on this run: the approver's identity does NOT survive into the SSoT. <code>printpressmfg.operation</code>'s <code>:request-approval</code> node writes it into the commit record's <code>:payload</code> as <code>:approved-by</code>, but <code>printpressmfg.store/commit-record!</code> destructures <code>[effect path value]</code> and never reads <code>:payload</code>, so the key is dropped on the way in. Attribution above is therefore joined from the <code>:approval-granted</code> audit facts and labelled <em>audit only</em> — &ldquo;nobody approved&rdquo; and &ldquo;the store did not keep it&rdquo; must not look the same to a reader.</p>
+  </section>
+  <section class="card">
+    <h2>Audit ledger — 21 immutable decision facts</h2>
+    <p class="lead">Append-only, in the order the run wrote it. Every proposal that reached a disposition appears here exactly once: commits, holds, and the approval grant/rejection that preceded them.</p>
+    <table>
+      <thead><tr><th>#</th><th>fact</th><th>op</th><th>subject</th><th>disposition</th><th>basis / approver</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><code>:committed</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="ok">commit</span></td><td><code>product-type</code> <code>last-assessed</code></td></tr>
+        <tr><td>2</td><td><code>:committed</code></td><td><code>:schedule-maintenance</code></td><td><code>mnt-1</code></td><td><span class="ok">commit</span></td><td><code>fab-001</code></td></tr>
+        <tr><td>3</td><td><code>:committed</code></td><td><code>:flag-safety-concern</code></td><td><code>concern-1</code></td><td><span class="ok">commit</span></td><td><code>fab-001</code></td></tr>
+        <tr><td>4</td><td><code>:committed</code></td><td><code>:coordinate-shipment</code></td><td><code>ship-1</code></td><td><span class="ok">commit</span></td><td><code>batch-001</code></td></tr>
+        <tr><td>5</td><td><code>:committed</code></td><td><code>:coordinate-shipment</code></td><td><code>ship-2</code></td><td><span class="ok">commit</span></td><td><code>batch-001</code></td></tr>
+        <tr><td>6</td><td><code>:approval-rejected</code></td><td><code>:schedule-maintenance</code></td><td><code>mnt-9</code></td><td><span class="warn">rejected</span></td><td><code>approver-rejected</code></td></tr>
+        <tr><td>7</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="warn">phase hold</span></td><td><code>:phase-disabled</code></td></tr>
+        <tr><td>8</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="bad">HARD hold</span></td><td><code>not-propose-effect</code></td></tr>
+        <tr><td>9</td><td><code>:governor-hold</code></td><td><code>:actuate-fabrication-line</code></td><td><code>fab-001</code></td><td><span class="bad">HARD hold</span></td><td><code>unknown-op</code> <code>equipment-control-blocked</code></td></tr>
+        <tr><td>10</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="bad">HARD hold</span></td><td><code>equipment-control-blocked</code></td></tr>
+        <tr><td>11</td><td><code>:governor-hold</code></td><td><code>:schedule-maintenance</code></td><td><code>mnt-3</code></td><td><span class="bad">HARD hold</span></td><td><code>equipment-actuate-blocked</code></td></tr>
+        <tr><td>12</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="bad">HARD hold</span></td><td><code>certification-authority-blocked</code></td></tr>
+        <tr><td>13</td><td><code>:governor-hold</code></td><td><code>:schedule-maintenance</code></td><td><code>mnt-5</code></td><td><span class="bad">HARD hold</span></td><td><code>certification-authority-blocked</code></td></tr>
+        <tr><td>14</td><td><code>:governor-hold</code></td><td><code>:schedule-maintenance</code></td><td><code>mnt-2</code></td><td><span class="bad">HARD hold</span></td><td><code>equipment-not-verified</code></td></tr>
+        <tr><td>15</td><td><code>:governor-hold</code></td><td><code>:schedule-maintenance</code></td><td><code>mnt-1</code></td><td><span class="bad">HARD hold</span></td><td><code>already-scheduled</code></td></tr>
+        <tr><td>16</td><td><code>:governor-hold</code></td><td><code>:coordinate-shipment</code></td><td><code>ship-3</code></td><td><span class="bad">HARD hold</span></td><td><code>batch-not-verified</code></td></tr>
+        <tr><td>17</td><td><code>:governor-hold</code></td><td><code>:coordinate-shipment</code></td><td><code>ship-4</code></td><td><span class="bad">HARD hold</span></td><td><code>shipment-quantity-exceeded</code></td></tr>
+        <tr><td>18</td><td><code>:governor-hold</code></td><td><code>:coordinate-shipment</code></td><td><code>ship-5</code></td><td><span class="bad">HARD hold</span></td><td><code>shipment-quantity-exceeded</code></td></tr>
+        <tr><td>19</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="bad">HARD hold</span></td><td><code>invalid-product-type</code></td></tr>
+        <tr><td>20</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="bad">HARD hold</span></td><td><code>invalid-registration-accuracy</code></td></tr>
+        <tr><td>21</td><td><code>:governor-hold</code></td><td><code>:log-production-batch</code></td><td><code>batch-001</code></td><td><span class="bad">HARD hold</span></td><td><code>invalid-defect-rate</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>製造ユニット型式 (<code>printpressmfg.facts/unit-types</code>)</h2>
+    <p class="lead">The manufactured unit models this ISIC 2829 plant produces. Resolution and depth-of-focus below are COMPUTED live by the repo's own <code>facts/resolution-nm</code> (Rayleigh CD = k1·λ/NA) and <code>facts/depth-of-focus-nm</code> (DOF = k2·λ/NA²) from the catalog's own wavelength and NA — they are not quoted spec numbers. The GTIN column is checked by the repo's own GS1 Modulo-10 implementation.</p>
+    <table>
+      <thead><tr><th>unit type</th><th>name</th><th>λ (nm)</th><th>NA</th><th>NA ceiling (medium)</th><th>CD @ k1=0.25 (nm)</th><th>CD @ k1=0.30 (nm)</th><th>DOF @ k2=1.0 (nm)</th><th>UNSPSC</th><th>GTIN</th><th>GTIN check</th></tr></thead>
+      <tbody>
+        <tr><td><code>:unit/arf-immersion-lithography-scanner</code></td><td>ArF液浸半導体露光装置(スキャナ)</td><td>193.0</td><td>1.35</td><td>1.44 <span class="muted">ultrapure water</span></td><td>35.74</td><td>42.89</td><td>105.90</td><td><code>23211101</code></td><td><code>0212829000011</code></td><td><span class="ok">mod-10 valid</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+<footer>
+  <p>Build-time artifact — generated by <code>printpressmfg.render-html</code> (<code>clojure -M:dev:render-html</code>) by running the real <code>printpressmfg.operation</code> StateGraph over a freshly seeded <code>printpressmfg.store/sample-data!</code>. No hand-written rows, no timestamps, no randomness: two consecutive runs are byte-identical. This actor only ever PROPOSES — it never actuates fabrication or assembly-line equipment, never dispatches a freight carrier, and never issues a CE (2006/42/EC) or ANSI B65.1 machinery-safety conformity mark.</p>
+</footer>
+</body>
+</html>
