@@ -39,7 +39,7 @@
   :render-html {:main-opts ["-m" "printpressmfg.render-html"]}
   :test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
          :main-opts ["-m" "cognitect.test-runner"]
          :exec-fn cognitect.test-runner.api/test}
   ;; OPT-IN 3D render verification for `printpressmfg.scene`:
@@ -58,7 +58,7 @@
    :extra-deps {io.github.kotoba-lang/webgpu {:local/root "../../kotoba-lang/webgpu"}
                 io.github.kotoba-lang/playwright {:local/root "../../kotoba-lang/playwright"}
                 io.github.cognitect-labs/test-runner
-                {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
    ;; kotoba-lang/physics-2d pins io.github.kotoba-lang/physics by git/sha while
    ;; webgpu's own transitive graph uses :local/root -- tools.deps can't compare
    ;; a :git and a :local/root coordinate for the same lib, so force the
@@ -80,7 +80,7 @@
    :extra-deps {io.github.kotoba-lang/kami-engine-cfd
                 {:local/root "../../kotoba-lang/kami-engine-cfd"}
                 io.github.cognitect-labs/test-runner
-                {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
    :main-opts ["-m" "cognitect.test-runner" "-d" "test-cfd"]
    :exec-fn cognitect.test-runner.api/test
    :exec-args {:dirs ["test-cfd"]}}
