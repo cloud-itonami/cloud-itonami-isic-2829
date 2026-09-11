@@ -6,7 +6,7 @@
     1. Structural conformance to `kami.webgpu.ir`'s v1 render-IR
        contract, checked with the REAL `kami.webgpu.ir/valid?`
        validator rather than a hand-rolled shape check (the hand-rolled
-       one lives in `test/printpressmfg/scene_test.cljc`, which must
+       one lives in `test/printpressmfg/scene_test.cljk`, which must
        stay runnable without a renderer).
     2. The scene actually DRAWS: baked with the REAL
        `kami.webgpu.geometry` mesh generators and rendered in a REAL

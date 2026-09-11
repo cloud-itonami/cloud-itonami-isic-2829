@@ -70,7 +70,7 @@
 
   ;; OPT-IN lattice-Boltzmann purge-flow solve for `printpressmfg.cfd`:
   ;;   clojure -M:cfd
-  ;; `src/printpressmfg/cfd.cljc` holds the problem DEFINITION and the
+  ;; `src/printpressmfg/cfd.cljk` holds the problem DEFINITION and the
   ;; pure post-processing and is dependency-free; this alias is the only
   ;; place the actual solver (`kami-cfd`, zero-dep portable CLJC) is on
   ;; the classpath, so a bare `clojure -M:test` never needs a CFD solver.
