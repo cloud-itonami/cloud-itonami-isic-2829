@@ -1,7 +1,7 @@
 (ns printpressmfg.scene-test
   "Structural assertions on the render-IR `printpressmfg.scene` emits.
 
-  These run on the DEFAULT classpath (`clojure -M:test`) and require no
+  These run on the DEFAULT classpath (`kbb -M:test`) and require no
   renderer -- they check the shape and the physical consistency of the
   scene. The companion `test-visualize/printpressmfg/
   scene_render_test.cljc` (alias `:visualize`) checks the same output

@@ -1,5 +1,5 @@
 (ns printpressmfg.scene-render-test
-  "OPT-IN 3D-visualization E2E gate (not part of `clojure -M:test`'s
+  "OPT-IN 3D-visualization E2E gate (not part of `kbb -M:test`'s
   default \"test\" dir -- see deps.edn's `:visualize` alias). Verifies
   TWO things about `printpressmfg.scene/unit->render-ir`:
 

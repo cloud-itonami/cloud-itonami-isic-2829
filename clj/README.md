@@ -28,8 +28,8 @@ keys throughout and reproduces the python output byte-for-byte (verified against
 
 ```bash
 # from this directory
-bb run_tests.clj     # 9 tests / 56 assertions green
-bb test              # same, via bb.edn task
+kbb run_tests.cljk     # 9 tests / 56 assertions green
+kbb -M:test              # same, via bb.edn task
 ```
 
 Pure-stdlib (`clojure.set` + `java.lang.Math` only) — loads on a bare babashka,

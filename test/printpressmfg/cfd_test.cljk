@@ -1,7 +1,7 @@
 (ns printpressmfg.cfd-test
   "Pure-function assertions on the purge-flow model.
 
-  These run on the DEFAULT classpath (`clojure -M:test`) with no solver
+  These run on the DEFAULT classpath (`kbb -M:test`) with no solver
   present -- they check the problem SETUP and the sample-to-optics
   post-processing. The companion `test-cfd/printpressmfg/
   cfd_solve_test.cljc` (alias `:cfd`) runs the real lattice-Boltzmann

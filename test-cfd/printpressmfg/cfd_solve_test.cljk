@@ -1,10 +1,10 @@
 (ns printpressmfg.cfd-solve-test
   "REAL lattice-Boltzmann solve of the wafer-stage purge flow.
 
-  Run with:  clojure -M:cfd
+  Run with:  kbb -M:cfd
 
   Deliberately outside the default `test` directory: this is the ONLY
-  place `kami-cfd` is on the classpath, so a bare `clojure -M:test`
+  place `kami-cfd` is on the classpath, so a bare `kbb -M:test`
   never needs a CFD solver (see `deps.edn`'s `:cfd` alias and the ns
   docstring of `printpressmfg.cfd`).
 
