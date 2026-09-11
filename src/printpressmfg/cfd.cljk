@@ -32,7 +32,7 @@
   stays on the always-on `src` classpath without putting a solver into
   this repo's governance/actuation dependency graph. `deps.edn`'s
   `:cfd` alias is the ONLY place `io.github.kotoba-lang/kami-engine-cfd`
-  is declared, and `test-cfd/printpressmfg/cfd_solve_test.cljc` is what
+  is declared, and `test-cfd/printpressmfg/cfd_solve_test.cljk` is what
   actually `:require`s `kami-cfd` and feeds real solved samples into
   `assess`. This mirrors how the sibling isic-2813 repo isolates its
   rendering stack behind a `:visualize` alias (ADR-2800000100).

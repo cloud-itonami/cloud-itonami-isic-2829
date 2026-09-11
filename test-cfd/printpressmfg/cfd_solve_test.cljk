@@ -8,7 +8,7 @@
   never needs a CFD solver (see `deps.edn`'s `:cfd` alias and the ns
   docstring of `printpressmfg.cfd`).
 
-  What this proves that `test/printpressmfg/cfd_test.cljc` cannot: that
+  What this proves that `test/printpressmfg/cfd_test.cljk` cannot: that
   `printpressmfg.cfd/lattice-spec` actually produces a problem the real
   `kami-cfd` D2Q9 solver accepts and converges on, and that real solved
   samples flowing through `assess` land at a physically sane place --
