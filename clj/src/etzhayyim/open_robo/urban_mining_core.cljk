@@ -15,7 +15,7 @@
   deployed code on the robot (Raspberry Pi 5 + ROS2 Humble); this namespace is
   the kotoba-Datom-log-native twin for off-robot reasoning over the
   `com.etzhayyim.apps.toshiKozan.registerEwasteStream` lexicon."
-  (:require [clojure.set :as set]))
+  (:require [kotoba.lang.coll :as set]))
 
 (def default-rules
   "Per stream-type sort policy (mirror of python DEFAULT_RULES)."
