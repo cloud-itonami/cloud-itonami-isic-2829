@@ -1,5 +1,5 @@
 (ns printpressmfg.facts-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [printpressmfg.facts :as f]))
 
 ;; ----------------------------- GTIN check digit -----------------------------

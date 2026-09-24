@@ -1,5 +1,5 @@
 (ns etzhayyim.open-robo.urban-mining-core-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [etzhayyim.open-robo.urban-mining-core :as umc]))
 
 (deftest pick-stream-type-test

@@ -6,7 +6,7 @@
   post-processing. The companion `test-cfd/printpressmfg/
   cfd_solve_test.cljc` (alias `:cfd`) runs the real lattice-Boltzmann
   solve and feeds genuine solved samples through the same functions."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [printpressmfg.cfd :as cfd]
             [printpressmfg.facts :as f]))
 
