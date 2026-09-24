@@ -30,7 +30,7 @@
   assertion is therefore 'geometry was drawn at this screen location',
   not 'this specific instance is unoccluded' -- which is exactly what a
   depth-tested render of a stacked assembly should be claimed to show."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [cheshire.core :as json]
             [kami.playwright :as pw]
             [kami.webgpu.geometry :as geom]

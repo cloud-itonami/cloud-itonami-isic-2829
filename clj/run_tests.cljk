@@ -1,7 +1,7 @@
 #!/usr/bin/env kbb
 ;; Run the open-robo clj test suite under babashka (repo rule: run_tests.clj, not .sh).
 ;;   kbb run_tests.cljk    (from 60-apps/etzhayyim-project-open-robo/clj/)
-(require '[clojure.test :as t]
+(require '[kotoba.test :as t]
          '[etzhayyim.open-robo.urban-mining-core-test])
 
 (let [{:keys [fail error]} (t/run-tests 'etzhayyim.open-robo.urban-mining-core-test)]

@@ -13,7 +13,7 @@
   `kami-cfd` D2Q9 solver accepts and converges on, and that real solved
   samples flowing through `assess` land at a physically sane place --
   not merely that the arithmetic is self-consistent."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami-cfd :as lbm]
             [printpressmfg.cfd :as cfd]
             [printpressmfg.facts :as f]))
