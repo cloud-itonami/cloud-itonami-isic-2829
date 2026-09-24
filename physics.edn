@@ -1,0 +1,44 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README: an ISIC 2829 plant fabricates and assembly/commissioning-bench-tests
+;; printing presses (offset, flexo, gravure, digital-inkjet, screen,
+;; die-cutting), including colour-registration proof runs, before shipment.
+;; The physical work around that plant: an arm installing inking rollers into
+;; a press unit, the chill-roll cooling-water loop run on the commissioning
+;; bench, and an AMR moving a finished print unit to the shipping dock.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-2829"
+ :cases
+ [{:id :install-inking-roller
+   :kind :manipulator
+   :procedure "assembly arm lifts an inking roller from the roller rack and lowers it into the press unit's side-frame bearings"
+   :params {:l1-m 0.70 :l2-m 0.60 :m1-kg 12.0 :m2-kg 8.0
+            :from [0.80 0.10] :to [0.40 0.75] :duration-s 3.5 :steps 500}
+   :sweep {:param :payload-kg :values [5.0 10.0 15.0 20.0 30.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 400.0 :basis "estimate: continuous shoulder torque of a ~30 kg-payload industrial arm class"}
+   :boundary {:lo 1.0 :hi 80.0}}
+  {:id :chill-roll-water-loop
+   :kind :pipe-flow
+   :procedure "commissioning bench circulates chiller water through a press's chill rolls (DN25 loop, 40 m of pipe equivalent)"
+   :params {:diameter-m 0.025 :length-m 40.0 :roughness-m 1.5e-6
+            :density-kg-m3 998.0 :viscosity-pa-s 1.0e-3 :pump-efficiency 0.55 :elevation-m 2.0}
+   :sweep {:param :q-m3s :values [0.0005 0.001 0.0015 0.002 0.003]}
+   :quantity :pressure-drop-pa
+   :limit {:max 250000.0 :basis "estimate: ~25 m head of a compact chiller circulation pump"}
+   :boundary {:lo 0.0002 :hi 0.006}}
+  {:id :print-unit-to-dock
+   :kind :transport
+   :procedure "AMR tugger moves a finished press print unit on its skid from the commissioning bench to the shipping dock (80 m)"
+   :params {:mass-kg 500.0 :distance-m 80.0 :v-max-mps 0.8 :a-max-mps2 0.3
+            :brake-decel-mps2 0.5 :drive-force-n 1200.0 :crr 0.012
+            :cog-height-m 0.35 :support-half-length-m 0.60 :payload-cog-height-m 1.10
+            :max-time-s 3600.0}
+   :sweep {:param :payload-kg :values [800.0 1500.0 2500.0 3500.0 5000.0]}
+   :quantity :cycle-time-s
+   :limit {:max 130.0 :basis "estimate: one dock run inside the press line's loading slot"}
+   :boundary {:lo 200.0 :hi 9000.0}}]}
