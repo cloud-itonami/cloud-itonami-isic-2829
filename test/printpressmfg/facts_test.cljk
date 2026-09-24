@@ -34,7 +34,9 @@
   (doseq [[id unit] f/unit-types]
     (testing (str id)
       (is (= 8 (count (:unspsc-code unit))))
-      (is (every? #(<= 0 (- (int %) 48) 9) (:unspsc-code unit))))))
+      ;; every character is a decimal digit -- checked on the character's string
+      ;; form, since (int c) on a char is JVM-only (kbb's chars are strings)
+      (is (every? #(re-matches #"[0-9]" (str %)) (:unspsc-code unit))))))
 
 (deftest every-gtin-is-flagged-as-an-unissued-placeholder
   ;; The catalog must never present a placeholder as a real GS1-issued
