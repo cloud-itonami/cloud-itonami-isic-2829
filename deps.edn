@@ -13,30 +13,43 @@
         ;; An explicit floor: the java.io.File method functions (exists?, file?,
         ;; parent-file, canonical-path, mkdirs, list-files ...) are in kotoba.io
         ;; from this sha, and tools.deps takes the NEWEST sha it is shown.
-        io.github.kotoba-lang/io {:git/sha "1b60ca825c1e705bd195f857ca4549133653a9f3"}
+        io.github.kotoba-lang/io
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "7e1dbe0aece831138e6106c59d2b26375d0f60c4"
+         :deps/root "lib/kotoba.io"}
         ;; kotoba.lang.edn replaced clojure.edn here (2026-09-23). An explicit floor:
         ;; tools.deps takes the NEWEST sha it is shown, and kbb resolves git deps
         ;; only from nbb.edn, so every project file this repo has names it.
-        io.github.kotoba-lang/edn {:git/sha "79dba32c8892058842c57783f06a2dfe4601aeb0"}
+        io.github.kotoba-lang/edn
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "7e1dbe0aece831138e6106c59d2b26375d0f60c4"
+         :deps/root "lib/kotoba.edn"}
        ;; kotoba.test (clojure.test-compatible surface), not clojure.test --
         ;; scripts/migrate-clojure-test-to-kotoba-test.cljk. Explicit floor.
-        io.github.kotoba-lang/test {:git/url "https://github.com/kotoba-lang/test.git"
-                                    :git/sha "2ab4885f99fd25552d380d0f6b0b54c5a72eb7ae"}
+        io.github.kotoba-lang/test
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "7e1dbe0aece831138e6106c59d2b26375d0f60c4"
+         :deps/root "lib/kotoba.test"}
         ;; kotoba.robotics.process: the process-physics solvers and probe this
         ;; repo's physics.edn runs on (physical-AI bot, scripts/physical-ai-bots).
-        io.github.kotoba-lang/robotics {:local/root "../../kotoba-lang/robotics"}
+        io.github.kotoba-lang/robotics
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.robotics"}
 
         ;; kotoba.lang.text, not clojure.string. Pinned as an explicit floor:
         ;; tools.deps takes the NEWEST sha it is shown, so without a floor here
         ;; this repo silently rides whatever a sibling happens to name.
-        io.github.kotoba-lang/text {:git/sha "73bdb13ae7a3d004b44bca08be03a3191157a38f"}
+        io.github.kotoba-lang/text
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "7e1dbe0aece831138e6106c59d2b26375d0f60c4"
+         :deps/root "lib/kotoba.text"}
        io.github.kotoba-lang/jp-go-digital-design-system
-        {:git/url "https://github.com/kotoba-lang/jp-go-digital-design-system"
-         :git/sha "83db99546eabc53613ae826ea41d1533a3c574af"}
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "7e1dbe0aece831138e6106c59d2b26375d0f60c4"
+         :deps/root "lib/kotoba.jpGoDigitalDesignSystem"}
         io.github.kotoba-lang/langgraph
-        {:local/root "../../kotoba-lang/langgraph"}
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.langgraph"}
         io.github.kotoba-lang/langchain
-        {:local/root "../../kotoba-lang/langchain"}}
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.langchain"}}
  :aliases
  {
   ;; kbb -M:physics -> the physical-AI bot's measurement: runs physics.edn on
@@ -50,7 +63,7 @@
   ;; with the top-level :deps override above).
   :dev {:override-deps
         {io.github.kotoba-lang/langchain
-         {:local/root "../../kotoba-lang/langchain"}}}
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.langchain"}}}
   ;; kbb -M:dev:run  -> drive the demo through one OperationActor
   :run {:main-opts ["-m" "printpressmfg.sim"]}
   ;; kbb -M:dev:render-html [out-file]
@@ -79,15 +92,18 @@
   ;; NODE_PATH or the npx cache -- `npx playwright install chromium`.
   :visualize
   {:extra-paths ["test-visualize"]
-   :extra-deps {io.github.kotoba-lang/webgpu {:local/root "../../kotoba-lang/webgpu"}
-                io.github.kotoba-lang/playwright {:local/root "../../kotoba-lang/playwright"}
+   :extra-deps {io.github.kotoba-lang/webgpu
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.webgpu"}
+                io.github.kotoba-lang/playwright
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.playwright"}
                 io.github.cognitect-labs/test-runner
                 {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
    ;; kotoba-lang/physics-2d pins io.github.kotoba-lang/physics by git/sha while
    ;; webgpu's own transitive graph uses :local/root -- tools.deps can't compare
    ;; a :git and a :local/root coordinate for the same lib, so force the
    ;; workspace-local checkout (same pattern as this file's :dev override-deps).
-   :override-deps {io.github.kotoba-lang/physics {:local/root "../../kotoba-lang/physics"}}
+   :override-deps {io.github.kotoba-lang/physics
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.physics"}}
    :main-opts ["-m" "cognitect.test-runner" "-d" "test-visualize"]
    :exec-fn cognitect.test-runner.api/test
    :exec-args {:dirs ["test-visualize"]}}
@@ -102,7 +118,7 @@
   :cfd
   {:extra-paths ["test-cfd"]
    :extra-deps {io.github.kotoba-lang/kami-engine-cfd
-                {:local/root "../../kotoba-lang/kami-engine-cfd"}
+        {:local/root "../../kotoba-lang/kotoba/lib/kotoba.kamiEngineCfd"}
                 io.github.cognitect-labs/test-runner
                 {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
    :main-opts ["-m" "cognitect.test-runner" "-d" "test-cfd"]
